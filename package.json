@@ -1,0 +1,19 @@
+{
+  "name": "cse-341-finalproject",
+  "version": "1.0.0",
+  "description": "This Repo contains the code for the final project in CSE 341 for group 2.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wmsmckay/cse-341-finalProject.git"
+  },
+  "author": "Group 2 (CSE 341)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Wmsmckay/cse-341-finalProject/issues"
+  },
+  "homepage": "https://github.com/Wmsmckay/cse-341-finalProject#readme"
+}
