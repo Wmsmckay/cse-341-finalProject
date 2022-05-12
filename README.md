@@ -13,7 +13,7 @@ This Repo contains the code for the final project in CSE 341 for group 2. Below 
 
 <!-- <a name="headers"> -->
 ## Group Project Workflow:
-### [Workflow example](https://www.youtube.com/watch?v=jhtbhSpV5YA)
+### [Workflow example video](https://www.youtube.com/watch?v=jhtbhSpV5YA)
 - Pull the changes from the remote repo to your local machines `git pull`
 - Pick a task to work on in the Projects tab on Github [Project Board](https://github.com/users/Wmsmckay/projects/2/views/1)
 - Move the task from Backlog to In Progress 
@@ -26,8 +26,9 @@ This Repo contains the code for the final project in CSE 341 for group 2. Below 
 
 
 ## Important Links
-### [Live Heroku App](https://cse-341-final-project.herokuapp.com/)
-### [Project Doc on Google Docs](https://docs.google.com/document/d/1dxG1FkaWK3DaMbvSzeLJHE3rwujTk2B4IzB7fTnAzxY/edit#)
+- [Live Heroku App](https://cse-341-final-project.herokuapp.com/)
+- [Github Repo](https://github.com/Wmsmckay/cse-341-finalProject)
+- [Project Doc on Google Docs](https://docs.google.com/document/d/1dxG1FkaWK3DaMbvSzeLJHE3rwujTk2B4IzB7fTnAzxY/edit#)
 
 
 ## Other links:
