@@ -26,7 +26,7 @@ This Repo contains the code for the final project in CSE 341 for group 2. Below 
 
 
 ## Important Links
-### [Live Heroku App](https://cse341-project02-mw.herokuapp.com/api-docs/)
+### [Live Heroku App](https://cse-341-final-project.herokuapp.com/)
 ### [Project Doc on Google Docs](https://docs.google.com/document/d/1dxG1FkaWK3DaMbvSzeLJHE3rwujTk2B4IzB7fTnAzxY/edit#)
 
 
