@@ -1,4 +1,4 @@
-const collection = 'audio';
+const collection = 'audios';
 const { response } = require('express');
 const res = require('express/lib/response');
 const AudioModel = require('../models/audio');
