@@ -1,10 +1,10 @@
 const collection = 'documents';
 const { response } = require('express');
 const res = require('express/lib/response');
-const DocumentsModel = require('../models/documents');
+const DocumentsModel = require('../models/document');
 const createError = require('http-errors');
 const mongoose = require('mongoose');
-const { createDocumentSchema, updateDocumentSchema } = require('../helpers/validation_schema');
+//const { createDocumentSchema, updateDocumentSchema } = require('../helpers/validation_schema');
 
 // #swagger.tags = ['Documents']
 

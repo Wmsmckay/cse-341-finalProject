@@ -4,7 +4,7 @@ const res = require('express/lib/response');
 const AudioModel = require('../models/audio');
 const createError = require('http-errors');
 const mongoose = require('mongoose');
-const { createAudioSchema, updateAudioSchema } = require('../helpers/validation_schema');
+//const { createAudioSchema, updateAudioSchema } = require('../helpers/validation_schema');
 
 // #swagger.tags = ['Audio']
 

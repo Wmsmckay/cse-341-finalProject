@@ -4,7 +4,7 @@ const res = require('express/lib/response');
 const VideoModel = require('../models/video');
 const createError = require('http-errors');
 const mongoose = require('mongoose');
-const { createVideoSchema, updateVideoSchema } = require('../helpers/validation_schema');
+//const { createVideoSchema, updateVideoSchema } = require('../helpers/validation_schema');
 
 // #swagger.tags = ['Video']
 
@@ -75,13 +75,13 @@ const update_video = async (req, res, next) => {
       video.participants = req.body.participants;
     }
     if (req.body.location) {
-        video.location = req.body.location;
+      video.location = req.body.location;
     }
     if (req.body.description) {
-        video.description = req.body.description;
+      video.description = req.body.description;
     }
     if (req.body.host) {
-        video.host = req.body.host;
+      video.host = req.body.host;
     }
 
     await video.save();
