@@ -1,0 +1,27 @@
+p {
+  margin: 10px 0 !important;
+}
+
+.login-container {
+  width: 90%;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.logo {
+  width: 50px;
+}
+
+.container {
+  text-align: center !important;
+}
+
+.sidenav {
+  text-align: right !important;
+}
+
+@media screen and (min-width: 665px) {
+  .login-container {
+    width: 600px;
+  }
+}

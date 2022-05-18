@@ -1,10 +1,10 @@
 const collection = 'users';
 const { response } = require('express');
 const res = require('express/lib/response');
-const UserModel = require('../models/users');
+const UserModel = require('../models/user');
 const createError = require('http-errors');
 const mongoose = require('mongoose');
-const { createUserSchema, updateUserSchema } = require('../helpers/validation_schema');
+//const { createUserSchema, updateUserSchema } = require('../helpers/validation_schema');
 
 // #swagger.tags = ['Users']
 

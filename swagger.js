@@ -3,10 +3,10 @@ const swaggerAutogen = require('swagger-autogen')();
 const doc = {
   info: {
     title: 'CSE 341 - GROUP 2 FINAL PROJECT',
-    description: 'Media Menagerie'
+    description: 'Mediatized'
   },
-  host: '***********.herokuapp.com',
-  schemes: ['https'],
+  host: 'localhost:8080', //'***********.herokuapp.com',
+  schemes: ['http'], //['https'],
   tags: [
     {
       name: 'Audio',
