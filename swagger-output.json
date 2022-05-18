@@ -25,15 +25,11 @@
       "description": "Operations for Users"
     }
   ],
-  "schemes": [
-    "https"
-  ],
+  "schemes": ["https"],
   "paths": {
     "/audio/": {
       "get": {
-        "tags": [
-          "Audio"
-        ],
+        "tags": ["Audio"],
         "description": "",
         "parameters": [],
         "responses": {
@@ -43,9 +39,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Audio"
-        ],
+        "tags": ["Audio"],
         "description": "",
         "parameters": [],
         "responses": {
@@ -57,9 +51,7 @@
     },
     "/audio/{id}": {
       "get": {
-        "tags": [
-          "Audio"
-        ],
+        "tags": ["Audio"],
         "description": "",
         "parameters": [
           {
@@ -76,9 +68,7 @@
         }
       },
       "put": {
-        "tags": [
-          "Audio"
-        ],
+        "tags": ["Audio"],
         "description": "",
         "parameters": [
           {
@@ -119,9 +109,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "Audio"
-        ],
+        "tags": ["Audio"],
         "description": "",
         "parameters": [
           {
@@ -140,9 +128,7 @@
     },
     "/video/": {
       "get": {
-        "tags": [
-          "Video"
-        ],
+        "tags": ["Video"],
         "description": "",
         "parameters": [],
         "responses": {
@@ -152,9 +138,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Video"
-        ],
+        "tags": ["Video"],
         "description": "",
         "parameters": [],
         "responses": {
@@ -166,9 +150,7 @@
     },
     "/video/{id}": {
       "get": {
-        "tags": [
-          "Video"
-        ],
+        "tags": ["Video"],
         "description": "",
         "parameters": [
           {
@@ -185,9 +167,7 @@
         }
       },
       "put": {
-        "tags": [
-          "Video"
-        ],
+        "tags": ["Video"],
         "description": "",
         "parameters": [
           {
@@ -231,9 +211,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "Video"
-        ],
+        "tags": ["Video"],
         "description": "",
         "parameters": [
           {
@@ -252,9 +230,7 @@
     },
     "/document/": {
       "get": {
-        "tags": [
-          "Documents"
-        ],
+        "tags": ["Documents"],
         "description": "",
         "parameters": [],
         "responses": {
@@ -264,9 +240,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Documents"
-        ],
+        "tags": ["Documents"],
         "description": "",
         "parameters": [],
         "responses": {
@@ -278,9 +252,7 @@
     },
     "/document/{id}": {
       "get": {
-        "tags": [
-          "Documents"
-        ],
+        "tags": ["Documents"],
         "description": "",
         "parameters": [
           {
@@ -297,9 +269,7 @@
         }
       },
       "put": {
-        "tags": [
-          "Documents"
-        ],
+        "tags": ["Documents"],
         "description": "",
         "parameters": [
           {
@@ -340,9 +310,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "Documents"
-        ],
+        "tags": ["Documents"],
         "description": "",
         "parameters": [
           {
@@ -361,9 +329,7 @@
     },
     "/user/": {
       "get": {
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "description": "",
         "parameters": [],
         "responses": {
@@ -373,9 +339,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "description": "",
         "parameters": [],
         "responses": {
@@ -387,9 +351,7 @@
     },
     "/user/{id}": {
       "get": {
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "description": "",
         "parameters": [
           {
@@ -406,9 +368,7 @@
         }
       },
       "put": {
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "description": "",
         "parameters": [
           {
@@ -455,9 +415,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "description": "",
         "parameters": [
           {
