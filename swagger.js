@@ -5,8 +5,11 @@ const doc = {
     title: 'CSE 341 - GROUP 2 FINAL PROJECT',
     description: 'Mediatized'
   },
-  host: 'localhost:8080', //'***********.herokuapp.com',
-  schemes: ['http'], //['https'],
+  // host: 'localhost:8080', 
+  host: 'https://cse-341-final-project.herokuapp.com/',
+
+  // change the host and schemes to work on localhost. Change back before pushing your branch to make sure the heroku app works
+  schemes: ['https'], //['https'],
   tags: [
     {
       name: 'Audio',
