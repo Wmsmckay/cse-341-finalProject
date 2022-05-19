@@ -42,17 +42,33 @@ const getSingle = async (req, res, next) => {
 
 const create_audio = async (req, res, next) => {
   // #swagger.tags = ['Audio']
-
   try {
-    const result = await createAudioSchema.validateAsync(req.body);
-    const audio = new AudioModel(result);
-    const request = await audio.save();
-    res.json(request);
-  } catch (err) {
-    if (err.name === 'ValidationError') {
-      return next(createError(422, err.message));
+    if (
+      !req.body.title ||
+      !req.body.audioType ||
+      !req.body.description ||
+      !req.body.link ||
+      !req.body.credit ||
+      !req.body.releaseDate ||
+      !req.body.length
+    ) {
+      res.status(400).send({ message: 'Audio fields cannot be empty.' });
+      return;
     }
-    next(err);
+    const audio = new AudioModel(req.body);
+    audio
+      .save()
+      .then((data) => {
+        console.log(data);
+        res.status(201).send(data);
+      })
+      .catch((err) => {
+        res.status(500).send({
+          message: err.message || 'An error occurred while creating the audio entry.'
+        });
+      });
+  } catch (err) {
+    res.status(500).json(err);
   }
 };
 

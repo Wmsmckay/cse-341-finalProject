@@ -44,15 +44,30 @@ const create_video = async (req, res, next) => {
   // #swagger.tags = ['Video']
 
   try {
-    const result = await createEventSchema.validateAsync(req.body);
-    const video = new VideoModel(result);
-    const request = await video.save();
-    res.json(request);
-  } catch (err) {
-    if (err.name === 'ValidationError') {
-      return next(createError(422, err.message));
+    if (
+      !req.body.title ||
+      !req.body.videoType ||
+      !req.body.description ||
+      !req.body.link ||
+      !req.body.releaseDate
+    ) {
+      res.status(400).send({ message: 'Content cannot be empty.' });
+      return;
     }
-    next(err);
+    const video = new VideoModel(req.body);
+    video
+      .save()
+      .then((data) => {
+        console.log(data);
+        res.status(201).send(data);
+      })
+      .catch((err) => {
+        res.status(500).send({
+          message: err.message || 'An error occurred while creating the video entry.'
+        });
+      });
+  } catch (err) {
+    res.status(500).json(err);
   }
 };
 
