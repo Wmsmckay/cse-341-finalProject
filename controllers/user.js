@@ -133,7 +133,7 @@ module.exports = {
   getAll,
   getSingle,
   // create_user,
-  delete_user,
+  delete_user
   // update_user
   // testCreateUser
 };
