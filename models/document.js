@@ -8,4 +8,4 @@ const docSchema = new mongoose.Schema({
   author: { type: String }
 });
 
-module.exports = mongoose.model('documents', docSchema);
+module.exports = mongoose.model('Documents', docSchema);

@@ -10,4 +10,4 @@ const audioSchema = new mongoose.Schema({
   length: { type: String }
 });
 
-module.exports = mongoose.model('audios', audioSchema);
+module.exports = mongoose.model('Audios', audioSchema);

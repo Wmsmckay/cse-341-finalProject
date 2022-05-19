@@ -8,4 +8,4 @@ const videoSchema = new mongoose.Schema({
   releaseDate: { type: String }
 });
 
-module.exports = mongoose.model('videos', videoSchema);
+module.exports = mongoose.model('Videos', videoSchema);
