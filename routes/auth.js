@@ -6,7 +6,9 @@ const router = require('express').Router();
 router.get(
   // #swagger.ignore = true
   '/google',
-  passport.authenticate('google', { scope: ['profile'] })
+  passport.authenticate('google', {
+    scope: ['profile']
+  })
 );
 
 // @desc      Google auth callback
@@ -14,7 +16,9 @@ router.get(
 router.get(
   // #swagger.ignore = true
   '/google/callback',
-  passport.authenticate('google', { failureRedirect: '/' }),
+  passport.authenticate('google', {
+    failureRedirect: '/'
+  }),
   (req, res) => {
     res.redirect('/dashboard');
   }
