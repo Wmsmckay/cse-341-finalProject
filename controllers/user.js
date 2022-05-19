@@ -46,68 +46,68 @@ const getSingle = async (req, res, next) => {
   }
 };
 
-const create_user = async (req, res, next) => {
-  // #swagger.tags = ['Users']
+// const create_user = async (req, res, next) => {
+//   // #swagger.tags = ['Users']
 
-  try {
-    const result = await createUserSchema.validateAsync(req.body);
-    const user = new UserModel(result);
-    const request = await user.save();
-    res.json(request);
-  } catch (err) {
-    // if (err.isJoi === true) {
-    //   error.status = 422
-    // };
-    if (err.name === 'ValidationError') {
-      return next(createError(422, err.message));
-    }
-    next(err);
-  }
-};
+//   try {
+//     const result = await createUserSchema.validateAsync(req.body);
+//     const user = new UserModel(result);
+//     const request = await user.save();
+//     res.json(request);
+//   } catch (err) {
+//     // if (err.isJoi === true) {
+//     //   error.status = 422
+//     // };
+//     if (err.name === 'ValidationError') {
+//       return next(createError(422, err.message));
+//     }
+//     next(err);
+//   }
+// };
 
-const update_user = async (req, res, next) => {
-  // #swagger.tags = ['Users']
+// const update_user = async (req, res, next) => {
+//   // #swagger.tags = ['Users']
 
-  try {
-    const user = await UserModel.findById(req.params.id);
+//   try {
+//     const user = await UserModel.findById(req.params.id);
 
-    if (!user) {
-      throw createError(404, "User doesn't exist");
-    }
+//     if (!user) {
+//       throw createError(404, "User doesn't exist");
+//     }
 
-    const result = await updateUserSchema.validateAsync(req.body);
+//     const result = await updateUserSchema.validateAsync(req.body);
 
-    if (req.body.firstName) {
-      user.firstName = req.body.firstName;
-    }
-    if (req.body.lastName) {
-      user.lastName = req.body.lastName;
-    }
-    if (req.body.email) {
-      user.email = req.body.email;
-    }
-    if (req.body.age) {
-      user.age = req.body.age;
-    }
-    if (req.body.phone) {
-      user.phone = req.body.phone;
-    }
-    if (req.body.eventsAttended) {
-      user.eventsAttended = req.body.eventsAttended;
-    }
-    if (req.body.gender) {
-      user.gender = req.body.gender;
-    }
+//     if (req.body.firstName) {
+//       user.firstName = req.body.firstName;
+//     }
+//     if (req.body.lastName) {
+//       user.lastName = req.body.lastName;
+//     }
+//     if (req.body.email) {
+//       user.email = req.body.email;
+//     }
+//     if (req.body.age) {
+//       user.age = req.body.age;
+//     }
+//     if (req.body.phone) {
+//       user.phone = req.body.phone;
+//     }
+//     if (req.body.eventsAttended) {
+//       user.eventsAttended = req.body.eventsAttended;
+//     }
+//     if (req.body.gender) {
+//       user.gender = req.body.gender;
+//     }
 
-    await user.save();
-    res.send(user);
-  } catch (err) {
-    if (err instanceof mongoose.CastError) {
-      return next(createError(400, 'Invalid User id'));
-    }
-    next(err);
-  }
-};
+//     await user.save();
+//     res.send(user);
+//   } catch (err) {
+//     if (err instanceof mongoose.CastError) {
+//       return next(createError(400, 'Invalid User id'));
+//     }
+//     next(err);
+//   }
+// };
 
 const delete_user = async (req, res, next) => {
   // #swagger.tags = ['Users']
@@ -132,8 +132,8 @@ const delete_user = async (req, res, next) => {
 module.exports = {
   getAll,
   getSingle,
-  create_user,
-  delete_user,
-  update_user
+  // create_user,
+  delete_user
+  // update_user
   // testCreateUser
 };
