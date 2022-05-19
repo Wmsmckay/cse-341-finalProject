@@ -5,7 +5,7 @@
     "description": "Mediatized",
     "version": "1.0.0"
   },
-  "host": "cse-341-final-project.herokuapp.com/",
+  "host": "cse-341-final-project.herokuapp.com",
   "basePath": "/",
   "tags": [
     {
