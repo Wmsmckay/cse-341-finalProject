@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { ensureAuth, ensureGuest } = require('../middleware/auth');
 
 // @desc    Login/Landing Page
 // @route   GET /
