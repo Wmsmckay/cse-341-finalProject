@@ -5,7 +5,7 @@ const docSchema = new mongoose.Schema({
   docType: { type: String },
   description: { type: String },
   link: { type: String },
-  author: { type: String }
+  author: { type: [String] }
 });
 
 module.exports = mongoose.model('Documents', docSchema);
