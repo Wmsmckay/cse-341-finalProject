@@ -5,7 +5,7 @@ const audioSchema = new mongoose.Schema({
   audioType: { type: String },
   description: { type: String },
   link: { type: String },
-  credit: { type: [String] },
+  credit: { performers: [String], writers: [String], publishers: [String] },
   releaseDate: { type: String },
   length: { type: String }
 });
