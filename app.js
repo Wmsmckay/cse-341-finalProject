@@ -36,7 +36,7 @@ app.set('view engine', '.hbs');
 // Sessions (must be above passport middleware)
 app.use(
   session({
-    secret: 'pebkac',
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI })
