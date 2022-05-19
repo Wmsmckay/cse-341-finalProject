@@ -44,15 +44,30 @@ const create_document = async (req, res, next) => {
   // #swagger.tags = ['Documents']
 
   try {
-    const result = await createDocumentSchema.validateAsync(req.body);
-    const document = new DocumentsModel(result);
-    const request = await document.save();
-    res.json(request);
-  } catch (err) {
-    if (err.name === 'ValidationError') {
-      return next(createError(422, err.message));
+    if (
+      !req.body.title ||
+      !req.body.docType ||
+      !req.body.description ||
+      !req.body.link ||
+      !req.body.author
+    ) {
+      res.status(400).send({ message: 'Document fields cannot be empty.' });
+      return;
     }
-    next(err);
+    const document = new DocumentsModel(req.body);
+    document
+      .save()
+      .then((data) => {
+        console.log(data);
+        res.status(201).send(data);
+      })
+      .catch((err) => {
+        res.status(500).send({
+          message: err.message || 'An error occurred while creating the document entry.'
+        });
+      });
+  } catch (err) {
+    res.status(500).json(err);
   }
 };
 
