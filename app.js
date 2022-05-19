@@ -36,7 +36,7 @@ app.set('view engine', '.hbs');
 // Sessions (must be above passport middleware)
 app.use(
   session({
-    secret: 'pebkac',
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI })
@@ -55,15 +55,24 @@ app
   .use(bodyParser.json())
   .use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader(
-      'Access-Control-Allow-Headers',
-      'Origin, X-Requested-With, Content-Type, Accept, Z-Key'
-    );
+    // res.setHeader(
+    //   'Access-Control-Allow-Headers',
+    //   'Origin, X-Requested-With, Content-Type, Accept, Z-Key'
+    // );
     // res.setHeader('Content-Type', 'application/json');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
     next();
   })
-  .use('/', require('./routes'));
+  .use('/', require('./routes'))
+  .use((err, req, res, next) => {
+    res.status(err.status || 500);
+    res.send({
+      error: {
+        status: err.status || 500,
+        message: err.message
+      }
+    });
+  });
 
 // Catch-all for logging errors in console
 process.on('uncaughtException', (err, origin) => {
