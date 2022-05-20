@@ -40,6 +40,23 @@ const getSingle = async (req, res, next) => {
   }
 };
 
+const getTitle = async (req, res, next) => {
+  // #swagger.tags = ['Documents']
+
+  try {
+    const request = await DocumentsModel.find( {
+      title: {
+        $regex: req.params.title,
+        $options: "i"} } );
+    if (!request) {
+      throw createError(404, "No titles found matching " + req.params.title);
+    }
+    res.json(request);
+  } catch (err) {
+      res.json({message: "Invalid request"});
+    }
+};
+
 const create_document = async (req, res, next) => {
   // #swagger.tags = ['Documents']
 
@@ -132,6 +149,7 @@ const delete_document = async (req, res, next) => {
 module.exports = {
   getAll,
   getSingle,
+  getTitle,
   create_document,
   delete_document,
   update_document

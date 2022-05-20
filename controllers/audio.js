@@ -40,6 +40,23 @@ const getSingle = async (req, res, next) => {
   }
 };
 
+const getTitle = async (req, res, next) => {
+  // #swagger.tags = ['Audio']
+
+  try {
+    const request = await AudioModel.find( {
+      title: {
+        $regex: req.params.title,
+        $options: "i"} } );
+    if (!request) {
+      throw createError(404, "No titles found matching " + req.params.title);
+    }
+    res.json(request);
+  } catch (err) {
+      res.json({message: "Invalid request"});
+    }
+};
+
 const create_audio = async (req, res, next) => {
   // #swagger.tags = ['Audio']
   try {
@@ -133,6 +150,7 @@ const delete_audio = async (req, res, next) => {
 module.exports = {
   getAll,
   getSingle,
+  getTitle,
   create_audio,
   delete_audio,
   update_audio

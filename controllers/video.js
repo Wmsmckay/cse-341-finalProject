@@ -40,6 +40,23 @@ const getSingle = async (req, res, next) => {
   }
 };
 
+const getTitle = async (req, res, next) => {
+  // #swagger.tags = ['Video']
+
+  try {
+    const request = await VideoModel.find( {
+      title: {
+        $regex: req.params.title,
+        $options: "i"} } );
+    if (!request) {
+      throw createError(404, "No titles found matching " + req.params.title);
+    }
+    res.json(request);
+  } catch (err) {
+      res.json({message: "Invalid request"});
+    }
+};
+
 const create_video = async (req, res, next) => {
   // #swagger.tags = ['Video']
 
@@ -132,6 +149,7 @@ const delete_video = async (req, res, next) => {
 module.exports = {
   getAll,
   getSingle,
+  getTitle,
   create_video,
   delete_video,
   update_video

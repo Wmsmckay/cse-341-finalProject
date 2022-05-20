@@ -46,6 +46,23 @@ const getSingle = async (req, res, next) => {
   }
 };
 
+const getUser = async (req, res, next) => {
+  // #swagger.tags = ['Users']
+
+  try {
+    const request = await UserModel.find( {
+      displayName: {
+        $regex: req.params.user,
+        $options: "i"} } );
+    if (!request) {
+      throw createError(404, req.params.user + " not found");
+    }
+    res.json(request);
+  } catch (err) {
+      res.json({message: "Invalid request"});
+    }
+};
+
 // const create_user = async (req, res, next) => {
 //   // #swagger.tags = ['Users']
 
@@ -132,6 +149,7 @@ const delete_user = async (req, res, next) => {
 module.exports = {
   getAll,
   getSingle,
+  getUser,
   // create_user,
   delete_user
   // update_user

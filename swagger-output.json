@@ -175,6 +175,27 @@
         }
       }
     },
+    "/audio/title/{title}": {
+      "get": {
+        "tags": [
+          "Audio"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "title",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/video/": {
       "get": {
         "tags": [
@@ -306,6 +327,27 @@
         "parameters": [
           {
             "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/video/title/{title}": {
+      "get": {
+        "tags": [
+          "Video"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "title",
             "in": "path",
             "required": true,
             "type": "string"
@@ -458,6 +500,27 @@
         }
       }
     },
+    "/document/title/{title}": {
+      "get": {
+        "tags": [
+          "Documents"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "title",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/user/": {
       "get": {
         "tags": [
@@ -500,6 +563,27 @@
         "parameters": [
           {
             "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/user/username/{user}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "user",
             "in": "path",
             "required": true,
             "type": "string"
