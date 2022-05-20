@@ -83,20 +83,20 @@ const update_document = async (req, res, next) => {
 
     const result = await updateDocumentSchema.validateAsync(req.body);
 
-    if (req.body.documentName) {
-      document.documentName = req.body.documentName;
+    if (req.body.title) {
+      document.title = req.body.title;
     }
-    if (req.body.participants) {
-      document.participants = req.body.participants;
-    }
-    if (req.body.location) {
-      document.location = req.body.location;
+    if (req.body.docType) {
+      document.docType = req.body.docType;
     }
     if (req.body.description) {
       document.description = req.body.description;
     }
-    if (req.body.host) {
-      document.host = req.body.host;
+    if (req.body.link) {
+      document.link = req.body.link;
+    }
+    if (req.body.author) {
+      document.author = req.body.author;
     }
 
     await document.save();

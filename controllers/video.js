@@ -83,20 +83,20 @@ const update_video = async (req, res, next) => {
 
     const result = await updateVideoSchema.validateAsync(req.body);
 
-    if (req.body.VideoName) {
-      video.videoName = req.body.videoName;
+    if (req.body.title) {
+      video.title = req.body.title;
     }
-    if (req.body.participants) {
-      video.participants = req.body.participants;
-    }
-    if (req.body.location) {
-      video.location = req.body.location;
+    if (req.body.videoType) {
+      video.videoType = req.body.videoType;
     }
     if (req.body.description) {
       video.description = req.body.description;
     }
-    if (req.body.host) {
-      video.host = req.body.host;
+    if (req.body.link) {
+      video.link = req.body.link;
+    }
+    if (req.body.releaseDate) {
+      video.releaseDate = req.body.releaseDate;
     }
 
     await video.save();

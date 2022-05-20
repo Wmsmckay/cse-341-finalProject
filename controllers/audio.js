@@ -48,7 +48,7 @@ const create_audio = async (req, res, next) => {
       !req.body.audioType ||
       !req.body.description ||
       !req.body.link ||
-      !req.body.credit ||
+      !req.body.contributors ||
       !req.body.releaseDate ||
       !req.body.length
     ) {
@@ -84,20 +84,26 @@ const update_audio = async (req, res, next) => {
 
     const result = await updateAudioSchema.validateAsync(req.body);
 
-    if (req.body.audioName) {
-      audio.audioName = req.body.audioName;
+    if (req.body.title) {
+      audio.title = req.body.title;
     }
-    if (req.body.participants) {
-      audio.participants = req.body.participants;
-    }
-    if (req.body.location) {
-      audio.location = req.body.location;
+    if (req.body.audioType) {
+      audio.audioType = req.body.audioType;
     }
     if (req.body.description) {
       audio.description = req.body.description;
     }
-    if (req.body.host) {
-      audio.host = req.body.host;
+    if (req.body.link) {
+      audio.link = req.body.link;
+    }
+    if (req.body.contributors) {
+      audio.contributors = req.body.contributors;
+    }
+    if (req.body.releaseDate) {
+      audio.releaseDate = req.body.releaseDate;
+    }
+    if (req.body.length) {
+      audio.length = req.body.length;
     }
 
     await audio.save();
