@@ -19,5 +19,4 @@ jobs:
       - run: npm install
 
       # Run tests
-      - run: npm format
       - run: npm test
