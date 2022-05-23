@@ -194,9 +194,7 @@
     },
     "/audio/title/{title}": {
       "get": {
-        "tags": [
-          "Audio"
-        ],
+        "tags": ["Audio"],
         "description": "",
         "parameters": [
           {
@@ -345,9 +343,7 @@
     },
     "/video/title/{title}": {
       "get": {
-        "tags": [
-          "Video"
-        ],
+        "tags": ["Video"],
         "description": "",
         "parameters": [
           {
@@ -496,9 +492,7 @@
     },
     "/document/title/{title}": {
       "get": {
-        "tags": [
-          "Documents"
-        ],
+        "tags": ["Documents"],
         "description": "",
         "parameters": [
           {
@@ -565,9 +559,7 @@
     },
     "/user/username/{user}": {
       "get": {
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "description": "",
         "parameters": [
           {

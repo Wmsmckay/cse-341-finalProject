@@ -44,17 +44,19 @@ const getTitle = async (req, res, next) => {
   // #swagger.tags = ['Documents']
 
   try {
-    const request = await DocumentsModel.find( {
+    const request = await DocumentsModel.find({
       title: {
         $regex: req.params.title,
-        $options: "i"} } );
+        $options: 'i'
+      }
+    });
     if (!request) {
-      throw createError(404, "No titles found matching " + req.params.title);
+      throw createError(404, 'No titles found matching ' + req.params.title);
     }
     res.json(request);
   } catch (err) {
-      res.json({message: "Invalid request"});
-    }
+    res.json({ message: 'Invalid request' });
+  }
 };
 
 const create_document = async (req, res, next) => {
