@@ -5,9 +5,9 @@ const db = require('../models');
 // Objects to be tested
 const audioData = {
     title: 'Sibbie',
-    audioType: 'mp4',
+    audioType: 'mp3',
     description: 'A song about Sibbie',
-    link: 'https://www.test.com/1234',
+    link: 'https://youtu.be/dQw4w9WgXcQ',
     contributors: {
         performers: [
             'Strong Bad'
@@ -26,9 +26,9 @@ const audioData = {
 const audioWithInvalidField = new AudioModel({
     title: 'Sibbie',
     invalidField: "I'm invalid :)",
-    audioType: 'mp4',
+    audioType: 'mp3',
     description: 'A song about Sibbie',
-    link: 'https://www.test.com/1234',
+    link: 'https://youtu.be/dQw4w9WgXcQ',
     contributors: {
         performers: [
             'Strong Bad'
@@ -47,7 +47,7 @@ const audioWithInvalidField = new AudioModel({
 const audioWithoutRequiredField = new AudioModel({
     title: 'Sibbie',
     description: 'A song about Sibbie',
-    link: 'https://www.test.com/1234',
+    link: 'https://youtu.be/dQw4w9WgXcQ',
     contributors: {
         performers: [
             'Strong Bad'
@@ -79,7 +79,7 @@ describe('Audio Model Test', () => {
                 }
             });
     });
-    
+
     afterAll(async () => {
         await db.mongoose.connection.close();
     });
@@ -95,7 +95,7 @@ describe('Audio Model Test', () => {
         expect(savedAudio.audioType).toBe(audioData.audioType);
         expect(savedAudio.description).toBe(audioData.description);
         expect(savedAudio.link).toBe(audioData.link);
-        // expect(savedAudio.contributors.performers).toBe(audioData.contributors.performers);
+        expect(savedAudio.contributors.performers.sort()).toStrictEqual(audioData.contributors.performers.sort());
         expect(savedAudio.releaseDate).toBe(audioData.releaseDate);
         expect(savedAudio.length).toBe(audioData.length);
     });
@@ -121,7 +121,4 @@ describe('Audio Model Test', () => {
         expect(err).toBeInstanceOf(mongoose.Error.ValidationError)
         expect(err.errors.audioType).toBeDefined();
     });
-
-    // db.connection.close();
-    // db.mongoose.disconnect();
 })
