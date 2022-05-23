@@ -7,6 +7,7 @@ const audioSchema = new mongoose.Schema({
   },
   audioType: {
     type: String,
+    required: true
   },
   description: {
     type: String

@@ -79,6 +79,11 @@ describe('Audio Model Test', () => {
                 }
             });
     });
+    
+    afterAll(async () => {
+        await db.mongoose.connection.close();
+    });
+
 
     // Test that audio can be created successfully
     it('create & save audio successfully', async () => {
@@ -104,7 +109,7 @@ describe('Audio Model Test', () => {
     });
 
     // Test Validation is working!!!
-    // It should have told us the error is on gender field.
+    // It should have told us the error is on audioType field.
     it('create user without required field should failed', async () => {
         let err;
         try {
@@ -117,5 +122,6 @@ describe('Audio Model Test', () => {
         expect(err.errors.audioType).toBeDefined();
     });
 
-
+    // db.connection.close();
+    // db.mongoose.disconnect();
 })
