@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
     "swagger": "node swagger.js"
   },
@@ -17,6 +17,10 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Wmsmckay/cse-341-finalProject/issues"
+  },
+  "jest": {
+    "verbose": true,
+    "preset": "@shelf/jest-mongodb"
   },
   "homepage": "https://github.com/Wmsmckay/cse-341-finalProject#readme",
   "dependencies": {
@@ -35,6 +39,7 @@
     "swagger-ui-express": "^4.3.0"
   },
   "devDependencies": {
+    "@shelf/jest-mongodb": "^2.2.2",
     "cross-env": "^7.0.3",
     "eslint": "^8.14.0",
     "eslint-config-prettier": "^8.5.0",
