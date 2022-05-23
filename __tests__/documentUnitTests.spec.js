@@ -61,6 +61,9 @@ describe('Document Model Test', () => {
     expect(savedDocument.description).toBe(documentData.description);
     expect(savedDocument.link).toBe(documentData.link);
     expect(savedDocument.author.sort()).toStrictEqual(documentData.author.sort());
+    
+    // Cleanup
+    // DocumentModel.findByIdAndDelete(savedDocument._id)
   });
 
   // Test Schema is working!!!

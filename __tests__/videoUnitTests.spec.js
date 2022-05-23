@@ -61,6 +61,9 @@ describe('Video Model Test', () => {
     expect(savedVideo.description).toBe(videoData.description);
     expect(savedVideo.link).toBe(videoData.link);
     expect(savedVideo.releaseDate).toBe(videoData.releaseDate);
+
+    // cleanup
+    // VideoModel.findByIdAndDelete(savedVideo._id)
   });
 
   // Test Schema is working!!!

@@ -83,6 +83,9 @@ describe('Audio Model Test', () => {
     );
     expect(savedAudio.releaseDate).toBe(audioData.releaseDate);
     expect(savedAudio.length).toBe(audioData.length);
+
+    // Cleanup
+    // AudioModel.findByIdAndDelete(savedAudio._id)
   });
 
   // Test Schema is working!!!
