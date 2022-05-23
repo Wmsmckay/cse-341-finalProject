@@ -5,7 +5,7 @@
     "description": "Mediatized",
     "version": "1.0.0"
   },
-  "host": "cse-341-final-project.herokuapp.com",
+  "host": "localhost:8080",
   "basePath": "/",
   "tags": [
     {
@@ -25,11 +25,15 @@
       "description": "Operations for Users"
     }
   ],
-  "schemes": ["https"],
+  "schemes": [
+    "http"
+  ],
   "paths": {
     "/audio/": {
       "get": {
-        "tags": ["Audio"],
+        "tags": [
+          "Audio"
+        ],
         "description": "",
         "parameters": [],
         "responses": {
@@ -39,7 +43,9 @@
         }
       },
       "post": {
-        "tags": ["Audio"],
+        "tags": [
+          "Audio"
+        ],
         "description": "",
         "parameters": [
           {
@@ -61,35 +67,12 @@
                   "example": "any"
                 },
                 "contributors": {
-                  "type": "object",
-                  "properties": {
-                    "performers": {
-                      "type": "array",
-                      "items": {
-                        "type": "string",
-                        "example": "any"
-                      }
-                    },
-                    "writers": {
-                      "type": "array",
-                      "items": {
-                        "type": "array",
-                        "example": "any"
-                      }
-                    },
-                    "publishers": {
-                      "type": "array",
-                      "items": {
-                        "type": "array",
-                        "example": "any"
-                      }
-                    }
-                  }
+                  "example": "any"
                 },
                 "releaseDate": {
                   "example": "any"
                 },
-                "length": {
+                "lengthSeconds": {
                   "example": "any"
                 }
               }
@@ -111,7 +94,9 @@
     },
     "/audio/{id}": {
       "get": {
-        "tags": ["Audio"],
+        "tags": [
+          "Audio"
+        ],
         "description": "",
         "parameters": [
           {
@@ -128,7 +113,9 @@
         }
       },
       "put": {
-        "tags": ["Audio"],
+        "tags": [
+          "Audio"
+        ],
         "description": "",
         "parameters": [
           {
@@ -161,7 +148,7 @@
                 "releaseDate": {
                   "example": "any"
                 },
-                "length": {
+                "lengthSeconds": {
                   "example": "any"
                 }
               }
@@ -175,7 +162,9 @@
         }
       },
       "delete": {
-        "tags": ["Audio"],
+        "tags": [
+          "Audio"
+        ],
         "description": "",
         "parameters": [
           {
@@ -215,7 +204,9 @@
     },
     "/video/": {
       "get": {
-        "tags": ["Video"],
+        "tags": [
+          "Video"
+        ],
         "description": "",
         "parameters": [],
         "responses": {
@@ -225,7 +216,9 @@
         }
       },
       "post": {
-        "tags": ["Video"],
+        "tags": [
+          "Video"
+        ],
         "description": "",
         "parameters": [
           {
@@ -247,6 +240,9 @@
                   "example": "any"
                 },
                 "releaseDate": {
+                  "example": "any"
+                },
+                "lengthSeconds": {
                   "example": "any"
                 }
               }
@@ -268,7 +264,9 @@
     },
     "/video/{id}": {
       "get": {
-        "tags": ["Video"],
+        "tags": [
+          "Video"
+        ],
         "description": "",
         "parameters": [
           {
@@ -285,7 +283,9 @@
         }
       },
       "put": {
-        "tags": ["Video"],
+        "tags": [
+          "Video"
+        ],
         "description": "",
         "parameters": [
           {
@@ -314,6 +314,9 @@
                 },
                 "releaseDate": {
                   "example": "any"
+                },
+                "lengthSeconds": {
+                  "example": "any"
                 }
               }
             }
@@ -326,7 +329,9 @@
         }
       },
       "delete": {
-        "tags": ["Video"],
+        "tags": [
+          "Video"
+        ],
         "description": "",
         "parameters": [
           {
@@ -366,7 +371,9 @@
     },
     "/document/": {
       "get": {
-        "tags": ["Documents"],
+        "tags": [
+          "Documents"
+        ],
         "description": "",
         "parameters": [],
         "responses": {
@@ -376,7 +383,9 @@
         }
       },
       "post": {
-        "tags": ["Documents"],
+        "tags": [
+          "Documents"
+        ],
         "description": "",
         "parameters": [
           {
@@ -419,7 +428,9 @@
     },
     "/document/{id}": {
       "get": {
-        "tags": ["Documents"],
+        "tags": [
+          "Documents"
+        ],
         "description": "",
         "parameters": [
           {
@@ -436,7 +447,9 @@
         }
       },
       "put": {
-        "tags": ["Documents"],
+        "tags": [
+          "Documents"
+        ],
         "description": "",
         "parameters": [
           {
@@ -477,7 +490,9 @@
         }
       },
       "delete": {
-        "tags": ["Documents"],
+        "tags": [
+          "Documents"
+        ],
         "description": "",
         "parameters": [
           {
@@ -517,7 +532,9 @@
     },
     "/user/": {
       "get": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "description": "",
         "parameters": [],
         "responses": {
@@ -529,7 +546,9 @@
     },
     "/user/{id}": {
       "get": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "description": "",
         "parameters": [
           {
@@ -546,7 +565,9 @@
         }
       },
       "delete": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "description": "",
         "parameters": [
           {

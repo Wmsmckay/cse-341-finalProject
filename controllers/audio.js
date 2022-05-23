@@ -67,7 +67,7 @@ const create_audio = async (req, res, next) => {
       !req.body.link ||
       !req.body.contributors ||
       !req.body.releaseDate ||
-      !req.body.length
+      !req.body.lengthSeconds
     ) {
       res.status(400).send({ message: 'Audio fields cannot be empty.' });
       return;
@@ -119,8 +119,8 @@ const update_audio = async (req, res, next) => {
     if (req.body.releaseDate) {
       audio.releaseDate = req.body.releaseDate;
     }
-    if (req.body.length) {
-      audio.length = req.body.length;
+    if (req.body.lengthSeconds) {
+      audio.lengthSeconds = req.body.lengthSeconds;
     }
 
     await audio.save();
