@@ -67,7 +67,30 @@
                   "example": "any"
                 },
                 "contributors": {
-                  "example": "any"
+                  "type": "object",
+                  "properties": {
+                    "performers": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "any"
+                      }
+                    },
+                    "writers": {
+                      "type": "array",
+                      "items": {
+                        "type": "array",
+                        "example": "any"
+                      }
+                    },
+                    "publishers": {
+                      "type": "array",
+                      "items": {
+                        "type": "array",
+                        "example": "any"
+                      }
+                    }
+                  }
                 },
                 "releaseDate": {
                   "example": "any"
