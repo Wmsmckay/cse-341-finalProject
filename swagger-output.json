@@ -27,35 +27,6 @@
   ],
   "schemes": ["https"],
   "paths": {
-    "/register/": {
-      "post": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "email": {
-                  "example": "any"
-                },
-                "firstname": {
-                  "example": "any"
-                },
-                "lastname": {
-                  "example": "any"
-                },
-                "password": {
-                  "example": "any"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {}
-      }
-    },
     "/audio/": {
       "get": {
         "tags": ["Audio"],
@@ -72,56 +43,11 @@
         "description": "",
         "parameters": [
           {
-            "name": "body",
+            "name": "obj",
             "in": "body",
+            "description": "Create an audio file",
             "schema": {
-              "type": "object",
-              "properties": {
-                "title": {
-                  "example": "any"
-                },
-                "audioType": {
-                  "example": "any"
-                },
-                "description": {
-                  "example": "any"
-                },
-                "link": {
-                  "example": "any"
-                },
-                "contributors": {
-                  "type": "object",
-                  "properties": {
-                    "performers": {
-                      "type": "array",
-                      "items": {
-                        "type": "string",
-                        "example": "any"
-                      }
-                    },
-                    "writers": {
-                      "type": "array",
-                      "items": {
-                        "type": "array",
-                        "example": "any"
-                      }
-                    },
-                    "publishers": {
-                      "type": "array",
-                      "items": {
-                        "type": "array",
-                        "example": "any"
-                      }
-                    }
-                  }
-                },
-                "releaseDate": {
-                  "example": "any"
-                },
-                "lengthSeconds": {
-                  "example": "any"
-                }
-              }
+              "$ref": "#/definitions/Audio"
             }
           }
         ],
@@ -167,56 +93,11 @@
             "type": "string"
           },
           {
-            "name": "body",
+            "name": "obj",
             "in": "body",
+            "description": "Edit an audio file",
             "schema": {
-              "type": "object",
-              "properties": {
-                "title": {
-                  "example": "any"
-                },
-                "audioType": {
-                  "example": "any"
-                },
-                "description": {
-                  "example": "any"
-                },
-                "link": {
-                  "example": "any"
-                },
-                "contributors": {
-                  "type": "object",
-                  "properties": {
-                    "performers": {
-                      "type": "array",
-                      "items": {
-                        "type": "string",
-                        "example": "any"
-                      }
-                    },
-                    "writers": {
-                      "type": "array",
-                      "items": {
-                        "type": "array",
-                        "example": "any"
-                      }
-                    },
-                    "publishers": {
-                      "type": "array",
-                      "items": {
-                        "type": "array",
-                        "example": "any"
-                      }
-                    }
-                  }
-                },
-                "releaseDate": {
-                  "example": "any"
-                },
-                "lengthSeconds": {
-                  "example": "any"
-                }
-              }
+              "$ref": "#/definitions/Audio"
             }
           }
         ],
@@ -279,30 +160,11 @@
         "description": "",
         "parameters": [
           {
-            "name": "body",
+            "name": "obj",
             "in": "body",
+            "description": "Create a video entry",
             "schema": {
-              "type": "object",
-              "properties": {
-                "title": {
-                  "example": "any"
-                },
-                "videoType": {
-                  "example": "any"
-                },
-                "description": {
-                  "example": "any"
-                },
-                "link": {
-                  "example": "any"
-                },
-                "releaseDate": {
-                  "example": "any"
-                },
-                "lengthSeconds": {
-                  "example": "any"
-                }
-              }
+              "$ref": "#/definitions/Video"
             }
           }
         ],
@@ -348,30 +210,11 @@
             "type": "string"
           },
           {
-            "name": "body",
+            "name": "obj",
             "in": "body",
+            "description": "Update a video entry",
             "schema": {
-              "type": "object",
-              "properties": {
-                "title": {
-                  "example": "any"
-                },
-                "videoType": {
-                  "example": "any"
-                },
-                "description": {
-                  "example": "any"
-                },
-                "link": {
-                  "example": "any"
-                },
-                "releaseDate": {
-                  "example": "any"
-                },
-                "lengthSeconds": {
-                  "example": "any"
-                }
-              }
+              "$ref": "#/definitions/Video"
             }
           }
         ],
@@ -434,27 +277,11 @@
         "description": "",
         "parameters": [
           {
-            "name": "body",
+            "name": "obj",
             "in": "body",
+            "description": "Create document entry",
             "schema": {
-              "type": "object",
-              "properties": {
-                "title": {
-                  "example": "any"
-                },
-                "docType": {
-                  "example": "any"
-                },
-                "description": {
-                  "example": "any"
-                },
-                "link": {
-                  "example": "any"
-                },
-                "author": {
-                  "example": "any"
-                }
-              }
+              "$ref": "#/definitions/Document"
             }
           }
         ],
@@ -500,27 +327,11 @@
             "type": "string"
           },
           {
-            "name": "body",
+            "name": "obj",
             "in": "body",
+            "description": "Update a document",
             "schema": {
-              "type": "object",
-              "properties": {
-                "title": {
-                  "example": "any"
-                },
-                "docType": {
-                  "example": "any"
-                },
-                "description": {
-                  "example": "any"
-                },
-                "link": {
-                  "example": "any"
-                },
-                "author": {
-                  "example": "any"
-                }
-              }
+              "$ref": "#/definitions/Document"
             }
           }
         ],
@@ -631,6 +442,117 @@
           "200": {
             "description": "OK"
           }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Audio": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "example": "Sibbie"
+        },
+        "audioType": {
+          "type": "string",
+          "example": "mp3"
+        },
+        "description": {
+          "type": "string",
+          "example": "A song about Sibbie"
+        },
+        "link": {
+          "type": "string",
+          "example": "https://www.youtube.com/shorts/ASm9cw8z1Ug"
+        },
+        "contributor": {
+          "type": "object",
+          "properties": {
+            "performers": {
+              "type": "array",
+              "example": ["Strong Bad"],
+              "items": {
+                "type": "string"
+              }
+            },
+            "writers": {
+              "type": "array",
+              "example": ["The Brothers Chaps"],
+              "items": {
+                "type": "string"
+              }
+            },
+            "publishers": {
+              "type": "array",
+              "example": ["The Brothers Chaps"],
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "releaseDate": {
+          "type": "string",
+          "example": "2003-06-09T06:00:00.000Z"
+        },
+        "lengthSeconds": {
+          "type": "number",
+          "example": 0.33
+        }
+      }
+    },
+    "Video": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "example": "Song by Richard Paul Astley"
+        },
+        "videoType": {
+          "type": "string",
+          "example": "mp4"
+        },
+        "description": {
+          "type": "string",
+          "example": "A great song about love"
+        },
+        "link": {
+          "type": "string",
+          "example": "https://youtu.be/dQw4w9WgXcQ"
+        },
+        "releaseDate": {
+          "type": "string",
+          "example": "2009-10-25T06:00:00.000Z"
+        },
+        "lengthSeconds": {
+          "type": "number",
+          "example": 3.32
+        }
+      }
+    },
+    "Document": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "example": "Darth Vader - The Good Guy Who Lost"
+        },
+        "docType": {
+          "type": "string",
+          "example": "eBook"
+        },
+        "description": {
+          "type": "string",
+          "example": "The arch villain of the Star Wars series, Darth Vader, has been grossly misrepresented by historians."
+        },
+        "link": {
+          "type": "string",
+          "example": "https://www.obooko.com/free-arts-media-entertainment-books/darth-vader-the-good-guy-who-lost"
+        },
+        "author": {
+          "type": "string",
+          "example": "M S Lawson"
         }
       }
     }
