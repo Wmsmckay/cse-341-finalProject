@@ -4,6 +4,7 @@ const res = require('express/lib/response');
 const UserModel = require('../models/user');
 const createError = require('http-errors');
 const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
 //const { createUserSchema, updateUserSchema } = require('../helpers/validation_schema');
 
 // #swagger.tags = ['Users']
@@ -50,81 +51,83 @@ const getUser = async (req, res, next) => {
   // #swagger.tags = ['Users']
 
   try {
-    const request = await UserModel.find( {
+    const request = await UserModel.find({
       displayName: {
         $regex: req.params.user,
-        $options: "i"} } );
+        $options: 'i'
+      }
+    });
     if (!request) {
-      throw createError(404, req.params.user + " not found");
+      throw createError(404, req.params.user + ' not found');
     }
     res.json(request);
   } catch (err) {
-      res.json({message: "Invalid request"});
-    }
+    res.json({ message: 'Invalid request' });
+  }
 };
 
-// const create_user = async (req, res, next) => {
-//   // #swagger.tags = ['Users']
+const registerUser = async (req, res) => {
+  const { email, firstname, lastname, password } = req.body;
 
-//   try {
-//     const result = await createUserSchema.validateAsync(req.body);
-//     const user = new UserModel(result);
-//     const request = await user.save();
-//     res.json(request);
-//   } catch (err) {
-//     // if (err.isJoi === true) {
-//     //   error.status = 422
-//     // };
-//     if (err.name === 'ValidationError') {
-//       return next(createError(422, err.message));
-//     }
-//     next(err);
-//   }
-// };
+  console.log(req.body);
+  let errors = [];
 
-// const update_user = async (req, res, next) => {
-//   // #swagger.tags = ['Users']
+  if (!email || !firstname || !lastname || !password) {
+    errors.push({ msg: 'Fields cannot be left blank.' });
+  }
 
-//   try {
-//     const user = await UserModel.findById(req.params.id);
+  if (password.length < 8) {
+    errors.push({ msg: 'Password must be at least 8 characters.' });
+  }
 
-//     if (!user) {
-//       throw createError(404, "User doesn't exist");
-//     }
+  if (errors.length > 0) {
+    res.render('register', {
+      layout: 'login',
+      errors,
+      email,
+      password
+    });
+    console.log(errors);
+  } else {
+    UserModel.findOne({ email: email }).then((user) => {
+      if (user) {
+        errors.push({ msg: 'Email already exists' });
+        res.render('register', {
+          layout: 'login',
+          errors,
+          email,
+          password
+        });
+        console.log(errors);
+      } else {
+        const newUser = new UserModel({
+          email,
+          firstname,
+          lastname,
+          password
+        });
 
-//     const result = await updateUserSchema.validateAsync(req.body);
-
-//     if (req.body.firstName) {
-//       user.firstName = req.body.firstName;
-//     }
-//     if (req.body.lastName) {
-//       user.lastName = req.body.lastName;
-//     }
-//     if (req.body.email) {
-//       user.email = req.body.email;
-//     }
-//     if (req.body.age) {
-//       user.age = req.body.age;
-//     }
-//     if (req.body.phone) {
-//       user.phone = req.body.phone;
-//     }
-//     if (req.body.eventsAttended) {
-//       user.eventsAttended = req.body.eventsAttended;
-//     }
-//     if (req.body.gender) {
-//       user.gender = req.body.gender;
-//     }
-
-//     await user.save();
-//     res.send(user);
-//   } catch (err) {
-//     if (err instanceof mongoose.CastError) {
-//       return next(createError(400, 'Invalid User id'));
-//     }
-//     next(err);
-//   }
-// };
+        bcrypt.genSalt(10, (err, salt) => {
+          bcrypt.hash(newUser.password, salt, (err, hash) => {
+            if (err) throw err;
+            newUser.password = hash;
+            newUser
+              .save()
+              .then((user) => {
+                // req.flash(
+                //   'success_msg',
+                //   'You are now registered and can log in.'
+                // );
+                console.log('You are now registered and can log in.');
+                res.redirect('/dashboard');
+              })
+              .catch((err) => console.log(err));
+          });
+        });
+      }
+    });
+  }
+};
 
 const delete_user = async (req, res, next) => {
   // #swagger.tags = ['Users']
@@ -150,8 +153,6 @@ module.exports = {
   getAll,
   getSingle,
   getUser,
-  // create_user,
+  registerUser,
   delete_user
-  // update_user
-  // testCreateUser
 };

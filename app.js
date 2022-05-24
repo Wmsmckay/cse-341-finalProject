@@ -6,6 +6,7 @@ const passport = require('passport');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const mongoose = require('mongoose');
+const flash = require('connect-flash');
 
 const port = process.env.PORT || 8080;
 const app = express();
@@ -53,6 +54,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Routes
 app
   .use(bodyParser.json())
+  .use(bodyParser.urlencoded({ extended: true }))
   .use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     // res.setHeader(
@@ -73,6 +75,15 @@ app
       }
     });
   });
+
+app.use(flash());
+
+app.use(function (req, res, next) {
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  res.locals.error = req.flash('error');
+  next();
+});
 
 // Catch-all for logging errors in console
 process.on('uncaughtException', (err, origin) => {
