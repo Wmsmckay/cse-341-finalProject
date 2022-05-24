@@ -6,7 +6,7 @@ const passport = require('passport');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const mongoose = require('mongoose');
-const flash = require('connect-flash');
+const flash = require('express-flash');
 
 const port = process.env.PORT || 8080;
 const app = express();
@@ -40,6 +40,7 @@ app.use(
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
+    cookie: { maxAge: 60000 },
     store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI })
   })
 );
@@ -50,6 +51,18 @@ app.use(passport.session());
 
 // Static folder
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(flash());
+
+// app.use(function (req, res, next) {
+//   res.locals.success_messages = req.flash('success_msg');
+//   res.locals.error_messages = req.flash('error_msg');
+//   res.locals.messages = req.flash('info');
+//   // res.locals.sessionFlash = req.session.sessionFlash;
+//   // delete req.session.sessionFlash;
+//   delete req.flash;
+//   next();
+// });
 
 // Routes
 app
@@ -75,15 +88,6 @@ app
       }
     });
   });
-
-app.use(flash());
-
-app.use(function (req, res, next) {
-  res.locals.success_msg = req.flash('success_msg');
-  res.locals.error_msg = req.flash('error_msg');
-  res.locals.error = req.flash('error');
-  next();
-});
 
 // Catch-all for logging errors in console
 process.on('uncaughtException', (err, origin) => {

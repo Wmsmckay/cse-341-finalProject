@@ -67,6 +67,7 @@ const getUser = async (req, res, next) => {
 };
 
 const registerUser = async (req, res) => {
+  // #swagger.ignore = true
   const { email, firstname, lastname, password } = req.body;
 
   console.log(req.body);
@@ -74,10 +75,12 @@ const registerUser = async (req, res) => {
 
   if (!email || !firstname || !lastname || !password) {
     errors.push({ msg: 'Fields cannot be left blank.' });
+    req.flash('fail', 'Fields cannot be left blank.');
   }
 
   if (password.length < 8) {
     errors.push({ msg: 'Password must be at least 8 characters.' });
+    req.flash('fail', 'Password must be at least 8 characters.');
   }
 
   if (errors.length > 0) {
@@ -114,12 +117,8 @@ const registerUser = async (req, res) => {
             newUser
               .save()
               .then((user) => {
-                // req.flash(
-                //   'success_msg',
-                //   'You are now registered and can log in.'
-                // );
-                console.log('You are now registered and can log in.');
-                res.redirect('/dashboard');
+                req.flash('success', 'You are registered and can now log in.');
+                res.redirect('/emaillogin');
               })
               .catch((err) => console.log(err));
           });

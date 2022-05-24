@@ -1,0 +1,40 @@
+{{!-- {{#if sessionFlash.message}}
+  <div id='flash-messages' class='container'>
+    {{#contains sessionFlash.type 'info'}}
+      <div class='alert alert-info'>
+        {{{success_messages.message}}}
+      </div>
+    {{/contains}}
+    {{#contains sessionFlash.type 'success'}}
+      <div class='alert alert-success'>
+        {{{success_messages.message}}}
+      </div>
+    {{/contains}}
+    {{#contains sessionFlash.type 'warning'}}
+      <div class='alert alert-warning'>
+        {{{success_messages.message}}}
+      </div>
+    {{/contains}}
+    {{#contains sessionFlash.type 'error'}}
+      <div class='alert alert-danger'>
+        {{{success_messages.message}}}
+      </div>
+    {{/contains}}
+  </div>
+{{/if}} --}}
+
+{{#if messages.success}}
+  <div id='success' class='container'>
+    {{messages.success}}
+  </div>
+{{/if}}
+{{#if messages.fail}}
+  <div id='fail' class='container'>
+    {{messages.fail}}
+  </div>
+{{/if}}
+{{#if message}}
+  <div id='info' class='container'>
+    {{message}}
+  </div>
+{{/if}}

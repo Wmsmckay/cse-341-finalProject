@@ -22,6 +22,23 @@ body {
   text-align: right !important;
 }
 
+#success,
+#fail {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border-radius: 5px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+#success {
+  background-color: palegreen;
+}
+
+#fail {
+  background-color: palevioletred;
+}
+
 @media screen and (min-width: 665px) {
   .login-container {
     width: 600px;
