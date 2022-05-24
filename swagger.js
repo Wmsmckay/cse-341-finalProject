@@ -39,16 +39,16 @@ const doc = {
         writers: ['The Brothers Chaps'],
         publishers: ['The Brothers Chaps']
       },
-      releaseDate: 'Jun 9, 2003',
-      lengthSeconds: '0:33'
+      releaseDate: '2003-06-09T06:00:00.000Z',
+      lengthSeconds: 0.33
     },
     Video: {
       title: 'Song by Richard Paul Astley',
       videoType: 'mp4',
       description: 'A great song about love',
       link: 'https://youtu.be/dQw4w9WgXcQ',
-      releaseDate: 'Oct 25, 2009',
-      lengthSeconds: '3:32'
+      releaseDate: '2009-10-25T06:00:00.000Z',
+      lengthSeconds: 3.32
     },
     Document: {
       title: 'Darth Vader - The Good Guy Who Lost',
