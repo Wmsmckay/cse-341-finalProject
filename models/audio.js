@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 
 const audioSchema = new mongoose.Schema({
   title: { type: String, required: true },
-  audioType: { 
+  audioType: {
     type: String,
-    enum: ['mp3', 'wav', 'wma','ogg', 'aac', 'flac','alac','aiff','pcm',]
+    enum: ['mp3', 'wav', 'wma', 'ogg', 'aac', 'flac', 'alac', 'aiff', 'pcm']
   },
   description: { type: String },
   link: { type: String },
