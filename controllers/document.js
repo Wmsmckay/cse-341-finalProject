@@ -85,7 +85,7 @@ const create_document = async (req, res, next) => {
     document
       .save()
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         res.status(201).send(data);
       })
       .catch((err) => {

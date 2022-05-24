@@ -70,7 +70,7 @@ const registerUser = async (req, res) => {
   // #swagger.ignore = true
   const { email, firstname, lastname, password } = req.body;
 
-  console.log(req.body);
+  // console.log(req.body);
   let errors = [];
 
   if (!email || !firstname || !lastname || !password) {
@@ -90,7 +90,7 @@ const registerUser = async (req, res) => {
       email,
       password
     });
-    console.log(errors);
+    // console.log(errors);
   } else {
     UserModel.findOne({ email: email }).then((user) => {
       if (user) {
@@ -101,7 +101,7 @@ const registerUser = async (req, res) => {
           email,
           password
         });
-        console.log(errors);
+        // console.log(errors);
       } else {
         const newUser = new UserModel({
           email,

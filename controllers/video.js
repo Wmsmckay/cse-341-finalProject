@@ -79,7 +79,7 @@ const create_video = async (req, res, next) => {
     video
       .save()
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         res.status(201).send(data);
       })
       .catch((err) => {

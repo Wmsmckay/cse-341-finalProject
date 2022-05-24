@@ -87,7 +87,7 @@ const create_audio = async (req, res, next) => {
     audio
       .save()
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         res.status(201).send(data);
       })
       .catch((err) => {
