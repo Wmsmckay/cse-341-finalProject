@@ -53,7 +53,6 @@ router.use(
   require('./register')
 );
 
-
 // router.all('/session-flash', function (req, res) {
 //   req.session.sessionFlash = {
 //     type: 'info',
