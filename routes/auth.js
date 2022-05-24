@@ -32,4 +32,11 @@ router.get('/logout', (req, res) => {
   res.redirect('/');
 });
 
+router.post('/login', (req, res, next) => {
+  passport.authenticate('local', {
+    successRedirect: '/dashboard',
+    failureRedirect: '/'
+  })(req, res, next);
+});
+
 module.exports = router;

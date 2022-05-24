@@ -10,10 +10,28 @@ router.get('/', ensureGuest, (req, res) => {
   });
 });
 
+// @desc    Login with email Page
+// @route   GET /emaillogin
+router.get('/emaillogin', ensureGuest, (req, res) => {
+  // #swagger.ignore = true
+  res.render('emaillogin', {
+    layout: 'login'
+  });
+});
+
+// @desc    Register Page
+// @route   GET /registerpage
+router.get('/registerpage', ensureGuest, (req, res) => {
+  // #swagger.ignore = true
+  res.render('register', {
+    layout: 'login'
+  });
+});
+
 router.get('/dashboard', ensureAuth, (req, res) => {
   res.render('dashboard', {
     // #swagger.ignore = true
-    // name: req.user.firstName
+    name: req.user.firstname
   });
 });
 
@@ -29,6 +47,7 @@ router.use(
   require('./swagger')
 );
 
+router.use('/register', require('./register'));
 router.use('/audio', ensureAuth, require('./audio'));
 router.use('/video', ensureAuth, require('./video'));
 router.use('/document', ensureAuth, require('./document'));
