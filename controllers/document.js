@@ -44,22 +44,30 @@ const getTitle = async (req, res, next) => {
   // #swagger.tags = ['Documents']
 
   try {
-    const request = await DocumentsModel.find( {
+    const request = await DocumentsModel.find({
       title: {
         $regex: req.params.title,
-        $options: "i"} } );
+        $options: 'i'
+      }
+    });
     if (!request) {
-      throw createError(404, "No titles found matching " + req.params.title);
+      throw createError(404, 'No titles found matching ' + req.params.title);
     }
     res.json(request);
   } catch (err) {
-      res.json({message: "Invalid request"});
-    }
+    res.json({
+      message: 'Invalid request'
+    });
+  }
 };
 
 const create_document = async (req, res, next) => {
   // #swagger.tags = ['Documents']
-
+  /*  #swagger.parameters['obj'] = {
+                    in: 'body',
+                    description: 'Create document entry',
+                    schema: { $ref: '#/definitions/Document' }
+            } */
   try {
     if (
       !req.body.title ||
@@ -68,7 +76,9 @@ const create_document = async (req, res, next) => {
       !req.body.link ||
       !req.body.author
     ) {
-      res.status(400).send({ message: 'Document fields cannot be empty.' });
+      res.status(400).send({
+        message: 'Document fields cannot be empty.'
+      });
       return;
     }
     const document = new DocumentsModel(req.body);
@@ -90,7 +100,11 @@ const create_document = async (req, res, next) => {
 
 const update_document = async (req, res, next) => {
   // #swagger.tags = ['Documents']
-
+  /*  #swagger.parameters['obj'] = {
+                  in: 'body',
+                  description: 'Update a document',
+                  schema: { $ref: '#/definitions/Document' }
+          } */
   try {
     const document = await DocumentModel.findById(req.params.id);
 

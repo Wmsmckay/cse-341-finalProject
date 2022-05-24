@@ -34,6 +34,7 @@ router.get('/logout', (req, res) => {
 });
 
 router.post('/login', (req, res, next) => {
+  // #swagger.ignore = true
   passport.authenticate('local', {
     successRedirect: '/dashboard',
     failureRedirect: '/',

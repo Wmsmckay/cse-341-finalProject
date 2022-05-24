@@ -47,6 +47,12 @@ router.use(
   ensureAuth,
   require('./swagger')
 );
+router.use(
+  // #swagger.ignore = true
+  '/register',
+  require('./register')
+);
+
 
 // router.all('/session-flash', function (req, res) {
 //   req.session.sessionFlash = {
@@ -57,6 +63,7 @@ router.use(
 // });
 
 router.use('/register', require('./register'));
+
 router.use('/audio', ensureAuth, require('./audio'));
 router.use('/video', ensureAuth, require('./video'));
 router.use('/document', ensureAuth, require('./document'));

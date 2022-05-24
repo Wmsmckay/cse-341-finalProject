@@ -15,9 +15,6 @@ const getAll = async (req, res, next) => {
     const request = await VideoModel.find();
     res.json(request);
   } catch (err) {
-    // res.json({
-    //   message: err
-    // });
     next(err);
   }
 };
@@ -44,22 +41,28 @@ const getTitle = async (req, res, next) => {
   // #swagger.tags = ['Video']
 
   try {
-    const request = await VideoModel.find( {
+    const request = await VideoModel.find({
       title: {
         $regex: req.params.title,
-        $options: "i"} } );
+        $options: 'i'
+      }
+    });
     if (!request) {
-      throw createError(404, "No titles found matching " + req.params.title);
+      throw createError(404, 'No titles found matching ' + req.params.title);
     }
     res.json(request);
   } catch (err) {
-      res.json({message: "Invalid request"});
-    }
+    res.json({ message: 'Invalid request' });
+  }
 };
 
 const create_video = async (req, res, next) => {
   // #swagger.tags = ['Video']
-
+  /*  #swagger.parameters['obj'] = {
+                  in: 'body',
+                  description: 'Create a video entry',
+                  schema: { $ref: '#/definitions/Video' }
+          } */
   try {
     if (
       !req.body.title ||
@@ -91,7 +94,11 @@ const create_video = async (req, res, next) => {
 
 const update_video = async (req, res, next) => {
   // #swagger.tags = ['Video']
-
+  /*  #swagger.parameters['obj'] = {
+                  in: 'body',
+                  description: 'Update a video entry',
+                  schema: { $ref: '#/definitions/Video' }
+          } */
   try {
     const video = await VideoModel.findById(req.params.id);
 

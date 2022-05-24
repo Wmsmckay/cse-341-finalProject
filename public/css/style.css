@@ -32,6 +32,10 @@ body {
 .sidenav {
   text-align: right !important;
 }
+.div-equ {
+  display: flex;
+  flex-direction: column;
+}
 
 #success,
 #fail {

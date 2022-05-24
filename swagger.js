@@ -27,7 +27,38 @@ const doc = {
       name: 'Users',
       description: 'Operations for Users'
     }
-  ]
+  ],
+  definitions: {
+    Audio: {
+      title: 'Sibbie',
+      audioType: 'mp3',
+      description: 'A song about Sibbie',
+      link: 'https://www.youtube.com/shorts/ASm9cw8z1Ug',
+      contributor: {
+        performers: ['Strong Bad'],
+        writers: ['The Brothers Chaps'],
+        publishers: ['The Brothers Chaps']
+      },
+      releaseDate: '2003-06-09T06:00:00.000Z',
+      lengthSeconds: 0.33
+    },
+    Video: {
+      title: 'Song by Richard Paul Astley',
+      videoType: 'mp4',
+      description: 'A great song about love',
+      link: 'https://youtu.be/dQw4w9WgXcQ',
+      releaseDate: '2009-10-25T06:00:00.000Z',
+      lengthSeconds: 3.32
+    },
+    Document: {
+      title: 'Darth Vader - The Good Guy Who Lost',
+      docType: 'eBook',
+      description:
+        'The arch villain of the Star Wars series, Darth Vader, has been grossly misrepresented by historians.',
+      link: 'https://www.obooko.com/free-arts-media-entertainment-books/darth-vader-the-good-guy-who-lost',
+      author: 'M S Lawson'
+    }
+  }
 };
 
 const outputFile = './swagger-output.json';

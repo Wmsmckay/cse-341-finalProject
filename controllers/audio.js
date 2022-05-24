@@ -44,21 +44,30 @@ const getTitle = async (req, res, next) => {
   // #swagger.tags = ['Audio']
 
   try {
-    const request = await AudioModel.find( {
+    const request = await AudioModel.find({
       title: {
         $regex: req.params.title,
-        $options: "i"} } );
+        $options: 'i'
+      }
+    });
     if (!request) {
-      throw createError(404, "No titles found matching " + req.params.title);
+      throw createError(404, 'No titles found matching ' + req.params.title);
     }
     res.json(request);
   } catch (err) {
-      res.json({message: "Invalid request"});
-    }
+    res.json({
+      message: 'Invalid request'
+    });
+  }
 };
 
 const create_audio = async (req, res, next) => {
   // #swagger.tags = ['Audio']
+  /*  #swagger.parameters['obj'] = {
+                  in: 'body',
+                  description: 'Create an audio file',
+                  schema: { $ref: '#/definitions/Audio' }
+          } */
   try {
     if (
       !req.body.title ||
@@ -69,7 +78,9 @@ const create_audio = async (req, res, next) => {
       !req.body.releaseDate ||
       !req.body.lengthSeconds
     ) {
-      res.status(400).send({ message: 'Audio fields cannot be empty.' });
+      res.status(400).send({
+        message: 'Audio fields cannot be empty.'
+      });
       return;
     }
     const audio = new AudioModel(req.body);
@@ -91,7 +102,11 @@ const create_audio = async (req, res, next) => {
 
 const update_audio = async (req, res, next) => {
   // #swagger.tags = ['Audio']
-
+  /*  #swagger.parameters['obj'] = {
+                  in: 'body',
+                  description: 'Edit an audio file',
+                  schema: { $ref: '#/definitions/Audio' }
+          } */
   try {
     const audio = await AudioModel.findById(req.params.id);
 
@@ -100,28 +115,6 @@ const update_audio = async (req, res, next) => {
     }
 
     const result = await updateAudioSchema.validateAsync(req.body);
-
-    if (req.body.title) {
-      audio.title = req.body.title;
-    }
-    if (req.body.audioType) {
-      audio.audioType = req.body.audioType;
-    }
-    if (req.body.description) {
-      audio.description = req.body.description;
-    }
-    if (req.body.link) {
-      audio.link = req.body.link;
-    }
-    if (req.body.contributors) {
-      audio.contributors = req.body.contributors;
-    }
-    if (req.body.releaseDate) {
-      audio.releaseDate = req.body.releaseDate;
-    }
-    if (req.body.lengthSeconds) {
-      audio.lengthSeconds = req.body.lengthSeconds;
-    }
 
     await audio.save();
     res.send(audio);
