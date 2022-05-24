@@ -2,12 +2,23 @@ p {
   margin: 10px 0 !important;
 }
 body {
+  background-image: url('https://cdn.glitch.global/9fbaaa4c-ec1f-4b63-b268-0c041b11c504/equalizer-gf60520f6d_1280.jpg?v=1653364915939');
+  background-repeat: no-repeat;
+  background-size: cover;
   background-color: silver !important ;
 }
+
 .login-container {
   width: 90%;
   margin-top: 50px;
   text-align: center;
+}
+
+.dashboard_container {
+  background-color: rgba(255, 255, 255, 0.85);
+  max-width: 800px;
+  padding: 2em;
+  margin: auto;
 }
 
 .logo {
@@ -24,6 +35,23 @@ body {
 .div-equ {
   display: flex;
   flex-direction: column;
+}
+
+#success,
+#fail {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border-radius: 5px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+#success {
+  background-color: palegreen;
+}
+
+#fail {
+  background-color: palevioletred;
 }
 
 @media screen and (min-width: 665px) {

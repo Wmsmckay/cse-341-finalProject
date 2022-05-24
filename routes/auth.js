@@ -29,6 +29,7 @@ router.get(
 router.get('/logout', (req, res) => {
   // #swagger.ignore = true
   req.logout();
+  req.flash('success', 'You have logged out.');
   res.redirect('/');
 });
 
@@ -36,7 +37,8 @@ router.post('/login', (req, res, next) => {
   // #swagger.ignore = true
   passport.authenticate('local', {
     successRedirect: '/dashboard',
-    failureRedirect: '/'
+    failureRedirect: '/',
+    failureFlash: true
   })(req, res, next);
 });
 

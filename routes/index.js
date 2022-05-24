@@ -33,6 +33,7 @@ router.get('/dashboard', ensureAuth, (req, res) => {
     // #swagger.ignore = true
     name: req.user.firstname
   });
+  // req.flash('info', 'You have logged in.');
 });
 
 router.use(
@@ -51,6 +52,17 @@ router.use(
   '/register',
   require('./register')
 );
+
+
+// router.all('/session-flash', function (req, res) {
+//   req.session.sessionFlash = {
+//     type: 'info',
+//     message: 'This is a flash message using custom middleware and express-session.'
+//   };
+//   res.redirect(301, '/');
+// });
+
+router.use('/register', require('./register'));
 
 router.use('/audio', ensureAuth, require('./audio'));
 router.use('/video', ensureAuth, require('./video'));
