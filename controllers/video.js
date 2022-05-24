@@ -66,7 +66,8 @@ const create_video = async (req, res, next) => {
       !req.body.videoType ||
       !req.body.description ||
       !req.body.link ||
-      !req.body.releaseDate
+      !req.body.releaseDate ||
+      !req.body.lengthSeconds
     ) {
       res.status(400).send({ message: 'Content cannot be empty.' });
       return;
@@ -114,6 +115,9 @@ const update_video = async (req, res, next) => {
     }
     if (req.body.releaseDate) {
       video.releaseDate = req.body.releaseDate;
+    }
+    if (req.body.lengthSeconds) {
+      video.lengthSeconds = req.body.lengthSeconds;
     }
 
     await video.save();
