@@ -1,7 +1,9 @@
 p {
   margin: 10px 0 !important;
 }
-
+body {
+  background-color: silver !important ;
+}
 .login-container {
   width: 90%;
   margin-top: 50px;
