@@ -57,9 +57,7 @@ const create_photo = async (req, res, next) => {
       !req.body.dateTaken ||
       !req.body.photographer
     ) {
-      res.status(400).send({
-        message: 'photo fields cannot be empty.'
-      });
+      res.status(400).send({ message: 'photo fields cannot be empty.' });
       return;
     }
     const photo = new PhotoModel(req.body);
