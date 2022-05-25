@@ -29,7 +29,7 @@ router.get(
 router.get('/logout', (req, res) => {
   // #swagger.ignore = true
   req.logout();
-  req.flash('success', 'You have logged out.');
+  req.flash('success', 'You have successfully logged out.');
   res.redirect('/');
 });
 
