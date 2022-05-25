@@ -75,12 +75,12 @@ const registerUser = async (req, res) => {
 
   if (!email || !firstname || !lastname || !password) {
     errors.push({ msg: 'Fields cannot be left blank.' });
-    req.flash('fail', 'Fields cannot be left blank.');
+    req.flash('error', 'Fields cannot be left blank.');
   }
 
   if (password.length < 8) {
     errors.push({ msg: 'Password must be at least 8 characters.' });
-    req.flash('fail', 'Password must be at least 8 characters.');
+    req.flash('error', 'Password must be at least 8 characters.');
   }
 
   if (errors.length > 0) {
@@ -94,7 +94,8 @@ const registerUser = async (req, res) => {
   } else {
     UserModel.findOne({ email: email }).then((user) => {
       if (user) {
-        errors.push({ msg: 'Email already exists' });
+        errors.push({ msg: 'That email is already registered.' });
+        req.flash('error', 'That email is already registered.');
         res.render('register', {
           layout: 'login',
           errors,
