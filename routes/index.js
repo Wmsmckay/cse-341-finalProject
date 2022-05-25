@@ -64,6 +64,7 @@ router.use(
 router.use('/register', require('./register'));
 
 router.use('/audio', ensureAuth, require('./audio'));
+router.use('/photo', ensureAuth, require('./photo'));
 router.use('/video', ensureAuth, require('./video'));
 router.use('/document', ensureAuth, require('./document'));
 router.use('/user', ensureAuth, require('./user'));

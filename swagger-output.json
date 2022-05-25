@@ -5,7 +5,7 @@
     "description": "Mediatized",
     "version": "1.0.0"
   },
-  "host": "cse-341-final-project.herokuapp.com",
+  "host": "localhost:8080",
   "basePath": "/",
   "tags": [
     {
@@ -21,15 +21,23 @@
       "description": "Operations for Documents"
     },
     {
+      "name": "Photos",
+      "description": "Operations for Photo Content"
+    },
+    {
       "name": "Users",
       "description": "Operations for Users"
     }
   ],
-  "schemes": ["https"],
+  "schemes": [
+    "http"
+  ],
   "paths": {
     "/audio/": {
       "get": {
-        "tags": ["Audio"],
+        "tags": [
+          "Audio"
+        ],
         "description": "",
         "parameters": [],
         "responses": {
@@ -39,7 +47,9 @@
         }
       },
       "post": {
-        "tags": ["Audio"],
+        "tags": [
+          "Audio"
+        ],
         "description": "",
         "parameters": [
           {
@@ -66,7 +76,9 @@
     },
     "/audio/{id}": {
       "get": {
-        "tags": ["Audio"],
+        "tags": [
+          "Audio"
+        ],
         "description": "",
         "parameters": [
           {
@@ -83,7 +95,9 @@
         }
       },
       "put": {
-        "tags": ["Audio"],
+        "tags": [
+          "Audio"
+        ],
         "description": "",
         "parameters": [
           {
@@ -108,7 +122,9 @@
         }
       },
       "delete": {
-        "tags": ["Audio"],
+        "tags": [
+          "Audio"
+        ],
         "description": "",
         "parameters": [
           {
@@ -127,7 +143,9 @@
     },
     "/audio/title/{title}": {
       "get": {
-        "tags": ["Audio"],
+        "tags": [
+          "Audio"
+        ],
         "description": "",
         "parameters": [
           {
@@ -144,9 +162,11 @@
         }
       }
     },
-    "/video/": {
+    "/photo/": {
       "get": {
-        "tags": ["Video"],
+        "tags": [
+          "Photos"
+        ],
         "description": "",
         "parameters": [],
         "responses": {
@@ -156,7 +176,117 @@
         }
       },
       "post": {
-        "tags": ["Video"],
+        "tags": [
+          "Photos"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Create a photo file",
+            "schema": {
+              "$ref": "#/definitions/Photo"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/photo/{id}": {
+      "get": {
+        "tags": [
+          "Photos"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Photos"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Edit an photo file",
+            "schema": {
+              "$ref": "#/definitions/Photo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Photos"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/video/": {
+      "get": {
+        "tags": [
+          "Video"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Video"
+        ],
         "description": "",
         "parameters": [
           {
@@ -183,7 +313,9 @@
     },
     "/video/{id}": {
       "get": {
-        "tags": ["Video"],
+        "tags": [
+          "Video"
+        ],
         "description": "",
         "parameters": [
           {
@@ -200,7 +332,9 @@
         }
       },
       "put": {
-        "tags": ["Video"],
+        "tags": [
+          "Video"
+        ],
         "description": "",
         "parameters": [
           {
@@ -225,7 +359,9 @@
         }
       },
       "delete": {
-        "tags": ["Video"],
+        "tags": [
+          "Video"
+        ],
         "description": "",
         "parameters": [
           {
@@ -244,7 +380,9 @@
     },
     "/video/title/{title}": {
       "get": {
-        "tags": ["Video"],
+        "tags": [
+          "Video"
+        ],
         "description": "",
         "parameters": [
           {
@@ -263,7 +401,9 @@
     },
     "/document/": {
       "get": {
-        "tags": ["Documents"],
+        "tags": [
+          "Documents"
+        ],
         "description": "",
         "parameters": [],
         "responses": {
@@ -273,7 +413,9 @@
         }
       },
       "post": {
-        "tags": ["Documents"],
+        "tags": [
+          "Documents"
+        ],
         "description": "",
         "parameters": [
           {
@@ -300,7 +442,9 @@
     },
     "/document/{id}": {
       "get": {
-        "tags": ["Documents"],
+        "tags": [
+          "Documents"
+        ],
         "description": "",
         "parameters": [
           {
@@ -317,7 +461,9 @@
         }
       },
       "put": {
-        "tags": ["Documents"],
+        "tags": [
+          "Documents"
+        ],
         "description": "",
         "parameters": [
           {
@@ -342,7 +488,9 @@
         }
       },
       "delete": {
-        "tags": ["Documents"],
+        "tags": [
+          "Documents"
+        ],
         "description": "",
         "parameters": [
           {
@@ -361,7 +509,9 @@
     },
     "/document/title/{title}": {
       "get": {
-        "tags": ["Documents"],
+        "tags": [
+          "Documents"
+        ],
         "description": "",
         "parameters": [
           {
@@ -380,7 +530,9 @@
     },
     "/user/": {
       "get": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "description": "",
         "parameters": [],
         "responses": {
@@ -392,7 +544,9 @@
     },
     "/user/{id}": {
       "get": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "description": "",
         "parameters": [
           {
@@ -409,7 +563,9 @@
         }
       },
       "delete": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "description": "",
         "parameters": [
           {
@@ -428,7 +584,9 @@
     },
     "/user/username/{user}": {
       "get": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "description": "",
         "parameters": [
           {
@@ -471,21 +629,27 @@
           "properties": {
             "performers": {
               "type": "array",
-              "example": ["Strong Bad"],
+              "example": [
+                "Strong Bad"
+              ],
               "items": {
                 "type": "string"
               }
             },
             "writers": {
               "type": "array",
-              "example": ["The Brothers Chaps"],
+              "example": [
+                "The Brothers Chaps"
+              ],
               "items": {
                 "type": "string"
               }
             },
             "publishers": {
               "type": "array",
-              "example": ["The Brothers Chaps"],
+              "example": [
+                "The Brothers Chaps"
+              ],
               "items": {
                 "type": "string"
               }
@@ -553,6 +717,48 @@
         "author": {
           "type": "string",
           "example": "M S Lawson"
+        }
+      }
+    },
+    "Photo": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "example": "Omaha Doorly Zoo Rain Forest"
+        },
+        "photoType": {
+          "type": "string",
+          "example": "jpg"
+        },
+        "description": {
+          "type": "string",
+          "example": "Rain forest exhibit at Omaha Doorly Zoo"
+        },
+        "link": {
+          "type": "string",
+          "example": "https://bloximages.newyork1.vip.townnews.com/omaha.com/content/tncms/assets/v3/editorial/9/a5/9a56b441-f174-5cc7-9735-30b7296127a1/58dfb31eb52ae.image.jpg?crop=1567%2C1175%2C98%2C0&resize=840%2C630&order=crop%2Cresize"
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "longitude": {
+              "type": "string",
+              "example": "41.224842° N"
+            },
+            "latitude": {
+              "type": "string",
+              "example": "-95.92657° E"
+            }
+          }
+        },
+        "dateTaken": {
+          "type": "string",
+          "example": "10-16-2019"
+        },
+        "photographer": {
+          "type": "string",
+          "example": "Rebecca S. Gratz"
         }
       }
     }
