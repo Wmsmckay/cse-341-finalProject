@@ -31,6 +31,8 @@ body {
 
 .sidenav {
   text-align: right !important;
+  max-height: 150px !important;
+  background-color: #829cda !important;
 }
 .div-equ {
   display: flex;
