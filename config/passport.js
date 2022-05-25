@@ -48,10 +48,13 @@ module.exports = function (passport) {
       // Match user
       User.findOne({
         email: email
-      }).then((user) => {
+      }).then((user, err) => {
+        if (err) {
+          return done(err);
+        }
         if (!user) {
           return done(null, false, {
-            message: 'That email is not registered.'
+            messages: 'That email is not registered.'
           });
         }
         // Match password
@@ -60,7 +63,7 @@ module.exports = function (passport) {
           if (isMatch) {
             return done(null, user);
           } else {
-            return done(null, false, { message: 'Password incorrect' });
+            return done(null, false, { messages: 'Password incorrect' });
           }
         });
       });

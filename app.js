@@ -54,16 +54,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(flash());
 
-// app.use(function (req, res, next) {
-//   res.locals.success_messages = req.flash('success_msg');
-//   res.locals.error_messages = req.flash('error_msg');
-//   res.locals.messages = req.flash('info');
-//   // res.locals.sessionFlash = req.session.sessionFlash;
-//   // delete req.session.sessionFlash;
-//   delete req.flash;
-//   next();
-// });
-
 // Routes
 app
   .use(bodyParser.json())
