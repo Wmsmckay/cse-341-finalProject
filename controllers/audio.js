@@ -1,7 +1,8 @@
 const collection = 'audios';
 const { response } = require('express');
 const res = require('express/lib/response');
-const AudioModel = require('../models/audio');
+const db = require('../models');
+const AudioModel = db.audio;
 const createError = require('http-errors');
 const mongoose = require('mongoose');
 //const { createAudioSchema, updateAudioSchema } = require('../helpers/validation_schema');
@@ -109,20 +110,31 @@ const update_audio = async (req, res, next) => {
           } */
   try {
     const audio = await AudioModel.findById(req.params.id);
-
     if (!audio) {
       throw createError(404, "Audio doesn't exist");
     }
 
-    const result = await updateAudioSchema.validateAsync(req.body);
+    if (req.body.title) audio.title = req.body.title;
+    if (req.body.audioType) audio.audioType = req.body.audioType;
+    if (req.body.description) audio.description = req.body.description;
+    if (req.body.link) audio.link = req.body.link;
+    if (req.body.contributors.performers)
+      audio.contributors.performers = req.body.contributors.performers;
+    if (req.body.contributors.writers) audio.contributors.writers = req.body.contributors.writers;
+    if (req.body.contributors.publishers)
+      audio.contributors.publishers = req.body.contributors.publishers;
+    if (req.body.releaseDate) audio.releaseDate = req.body.releaseDate;
+    if (req.body.lengthSeconds) audio.lengthSeconds = req.body.lengthSeconds;
 
-    await audio.save();
-    res.send(audio);
+    audio.save((err) => {
+      if (err) {
+        res.status(500).json(err || 'An error occurred while updating the audio.');
+      } else {
+        res.status(204).send();
+      }
+    });
   } catch (err) {
-    if (err instanceof mongoose.CastError) {
-      return next(createError(400, 'Invalid Audio id'));
-    }
-    next(err);
+    res.status(500).json(err);
   }
 };
 

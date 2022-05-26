@@ -1,7 +1,8 @@
 const collection = 'documents';
 const { response } = require('express');
 const res = require('express/lib/response');
-const DocumentsModel = require('../models/document');
+const db = require('../models');
+const DocumentsModel = db.document;
 const createError = require('http-errors');
 const mongoose = require('mongoose');
 // const { createDocumentSchema, updateDocumentSchema } = require('../helpers/validation_schema');
@@ -112,31 +113,21 @@ const update_document = async (req, res, next) => {
       throw createError(404, "Document doesn't exist");
     }
 
-    const result = await updateDocumentSchema.validateAsync(req.body);
+    if (req.body.title) document.title = req.body.title;
+    if (req.body.docType) document.docType = req.body.docType;
+    if (req.body.description) document.description = req.body.description;
+    if (req.body.link) document.link = req.body.link;
+    if (req.body.author) document.author = req.body.author;
 
-    if (req.body.title) {
-      document.title = req.body.title;
-    }
-    if (req.body.docType) {
-      document.docType = req.body.docType;
-    }
-    if (req.body.description) {
-      document.description = req.body.description;
-    }
-    if (req.body.link) {
-      document.link = req.body.link;
-    }
-    if (req.body.author) {
-      document.author = req.body.author;
-    }
-
-    await document.save();
-    res.send(document);
+    document.save((err) => {
+      if (err) {
+        res.status(500).json(err || 'An error occurred while updating the document.');
+      } else {
+        res.status(204).send();
+      }
+    });
   } catch (err) {
-    if (err instanceof mongoose.CastError) {
-      return next(createError(400, 'Invalid Document id'));
-    }
-    next(err);
+    res.status(500).json(err);
   }
 };
 

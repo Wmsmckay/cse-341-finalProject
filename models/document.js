@@ -30,7 +30,8 @@ const docSchema = new mongoose.Schema({
       'xlr',
       'xlsx',
       'pdf',
-      'ebook'
+      'ebook',
+      'eBook'
     ]
   },
   description: { type: String },

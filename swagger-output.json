@@ -25,15 +25,11 @@
       "description": "Operations for Users"
     }
   ],
-  "schemes": [
-    "https"
-  ],
+  "schemes": ["https"],
   "paths": {
     "/audio/": {
       "get": {
-        "tags": [
-          "Audio"
-        ],
+        "tags": ["Audio"],
         "description": "",
         "parameters": [],
         "responses": {
@@ -43,9 +39,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Audio"
-        ],
+        "tags": ["Audio"],
         "description": "",
         "parameters": [
           {
@@ -72,9 +66,7 @@
     },
     "/audio/{id}": {
       "get": {
-        "tags": [
-          "Audio"
-        ],
+        "tags": ["Audio"],
         "description": "",
         "parameters": [
           {
@@ -91,9 +83,7 @@
         }
       },
       "put": {
-        "tags": [
-          "Audio"
-        ],
+        "tags": ["Audio"],
         "description": "",
         "parameters": [
           {
@@ -118,9 +108,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "Audio"
-        ],
+        "tags": ["Audio"],
         "description": "",
         "parameters": [
           {
@@ -139,9 +127,7 @@
     },
     "/audio/title/{title}": {
       "get": {
-        "tags": [
-          "Audio"
-        ],
+        "tags": ["Audio"],
         "description": "",
         "parameters": [
           {
@@ -160,9 +146,7 @@
     },
     "/video/": {
       "get": {
-        "tags": [
-          "Video"
-        ],
+        "tags": ["Video"],
         "description": "",
         "parameters": [],
         "responses": {
@@ -172,9 +156,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Video"
-        ],
+        "tags": ["Video"],
         "description": "",
         "parameters": [
           {
@@ -201,9 +183,7 @@
     },
     "/video/{id}": {
       "get": {
-        "tags": [
-          "Video"
-        ],
+        "tags": ["Video"],
         "description": "",
         "parameters": [
           {
@@ -220,9 +200,7 @@
         }
       },
       "put": {
-        "tags": [
-          "Video"
-        ],
+        "tags": ["Video"],
         "description": "",
         "parameters": [
           {
@@ -247,9 +225,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "Video"
-        ],
+        "tags": ["Video"],
         "description": "",
         "parameters": [
           {
@@ -268,9 +244,7 @@
     },
     "/video/title/{title}": {
       "get": {
-        "tags": [
-          "Video"
-        ],
+        "tags": ["Video"],
         "description": "",
         "parameters": [
           {
@@ -289,9 +263,7 @@
     },
     "/document/": {
       "get": {
-        "tags": [
-          "Documents"
-        ],
+        "tags": ["Documents"],
         "description": "",
         "parameters": [],
         "responses": {
@@ -301,9 +273,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Documents"
-        ],
+        "tags": ["Documents"],
         "description": "",
         "parameters": [
           {
@@ -330,9 +300,7 @@
     },
     "/document/{id}": {
       "get": {
-        "tags": [
-          "Documents"
-        ],
+        "tags": ["Documents"],
         "description": "",
         "parameters": [
           {
@@ -349,9 +317,7 @@
         }
       },
       "put": {
-        "tags": [
-          "Documents"
-        ],
+        "tags": ["Documents"],
         "description": "",
         "parameters": [
           {
@@ -376,9 +342,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "Documents"
-        ],
+        "tags": ["Documents"],
         "description": "",
         "parameters": [
           {
@@ -397,9 +361,7 @@
     },
     "/document/title/{title}": {
       "get": {
-        "tags": [
-          "Documents"
-        ],
+        "tags": ["Documents"],
         "description": "",
         "parameters": [
           {
@@ -418,9 +380,7 @@
     },
     "/user/": {
       "get": {
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "description": "",
         "parameters": [],
         "responses": {
@@ -432,9 +392,7 @@
     },
     "/user/{id}": {
       "get": {
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "description": "",
         "parameters": [
           {
@@ -451,9 +409,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "description": "",
         "parameters": [
           {
@@ -472,9 +428,7 @@
     },
     "/user/username/{user}": {
       "get": {
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "description": "",
         "parameters": [
           {
@@ -517,27 +471,21 @@
           "properties": {
             "performers": {
               "type": "array",
-              "example": [
-                "Strong Bad"
-              ],
+              "example": ["Strong Bad"],
               "items": {
                 "type": "string"
               }
             },
             "writers": {
               "type": "array",
-              "example": [
-                "The Brothers Chaps"
-              ],
+              "example": ["The Brothers Chaps"],
               "items": {
                 "type": "string"
               }
             },
             "publishers": {
               "type": "array",
-              "example": [
-                "The Brothers Chaps"
-              ],
+              "example": ["The Brothers Chaps"],
               "items": {
                 "type": "string"
               }
