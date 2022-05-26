@@ -15,10 +15,22 @@ body {
 }
 
 .dashboard_container {
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(255, 255, 255);
   max-width: 800px;
   padding: 2em;
   margin: auto;
+  margin-top: 1em;
+  border-radius: 5px;
+}
+
+.link {
+  margin: 2em 10em;
+  border-radius: 5px;
+  padding: 0.75em;
+}
+
+.link:hover {
+  background-color: rgb(105, 105, 105);
 }
 
 .logo {
@@ -34,6 +46,7 @@ body {
   max-height: 150px !important;
   background-color: #829cda !important;
 }
+
 .div-equ {
   display: flex;
   flex-direction: column;
