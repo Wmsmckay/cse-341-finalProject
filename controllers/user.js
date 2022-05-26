@@ -55,18 +55,22 @@ const getSingle = async (req, res, next) => {
   }
 };
 
-const getUser = async (req, res, next) => {
+const getUserByName = async (req, res, next) => {
   // #swagger.tags = ['Users']
 
   try {
-    const request = await UserModel.find({
-      displayName: {
+    const request = await UserModel.find({$or:[{
+      lastname: {
         $regex: req.params.user,
         $options: 'i'
-      }
+      }},
+      {firstname: {
+        $regex: req.params.user,
+        $options: 'i'
+      }}]
     });
-    if (!request) {
-      throw createError(404, req.params.user + ' not found');
+    if (request.length == 0) {
+      throw createError(404, 'User not found');
     }
     if (request.password) {
       request.password = '********';
@@ -163,7 +167,7 @@ const delete_user = async (req, res, next) => {
 module.exports = {
   getAll,
   getSingle,
-  getUser,
+  getUserByName,
   registerUser,
   delete_user
 };

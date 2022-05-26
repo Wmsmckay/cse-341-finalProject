@@ -21,6 +21,10 @@
       "description": "Operations for Documents Content include GET which returns all entries, POST which lets you add an entry, GET(by ID) which allows you to search for a specific entry based on an id created by the application, PUT which overwrites the informtaion on an entry, DELETE which removes an entry from the database, and GET(by Title) which searches for a entry based on the title of the entry stored."
     },
     {
+      "name": "Photos",
+      "description": "Operations for Photo Content"
+    },
+    {
       "name": "Users",
       "description": "Operations for Users include GET which returns all users,GET(by ID) which allows you to search for a specific entry based on an id created by the application, DELETE which removes an entry from the database, andGET(by Title) which searches for a entry based on the title of the entry stored."
     }
@@ -132,6 +136,117 @@
         "parameters": [
           {
             "name": "title",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/photo/": {
+      "get": {
+        "tags": [
+          "Photos"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Photos"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Create a photo file",
+            "schema": {
+              "$ref": "#/definitions/Photo"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/photo/{id}": {
+      "get": {
+        "tags": [
+          "Photos"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Photos"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Edit an photo file",
+            "schema": {
+              "$ref": "#/definitions/Photo"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Photos"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -426,7 +541,7 @@
         }
       }
     },
-    "/user/username/{user}": {
+    "/user/name/{user}": {
       "get": {
         "tags": ["Users"],
         "description": "",
@@ -553,6 +668,48 @@
         "author": {
           "type": "string",
           "example": "M S Lawson"
+        }
+      }
+    },
+    "Photo": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "example": "Omaha Doorly Zoo Rain Forest"
+        },
+        "photoType": {
+          "type": "string",
+          "example": "jpg"
+        },
+        "description": {
+          "type": "string",
+          "example": "Rain forest exhibit at Omaha Doorly Zoo"
+        },
+        "link": {
+          "type": "string",
+          "example": "https://bloximages.newyork1.vip.townnews.com/omaha.com/content/tncms/assets/v3/editorial/9/a5/9a56b441-f174-5cc7-9735-30b7296127a1/58dfb31eb52ae.image.jpg?crop=1567%2C1175%2C98%2C0&resize=840%2C630&order=crop%2Cresize"
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "longitude": {
+              "type": "string",
+              "example": "41.224842° N"
+            },
+            "latitude": {
+              "type": "string",
+              "example": "-95.92657° E"
+            }
+          }
+        },
+        "dateTaken": {
+          "type": "string",
+          "example": "10-16-2019"
+        },
+        "photographer": {
+          "type": "string",
+          "example": "Rebecca S. Gratz"
         }
       }
     }

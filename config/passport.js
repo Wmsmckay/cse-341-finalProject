@@ -14,7 +14,7 @@ module.exports = function (passport) {
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
         callbackURL: 'https://cse-341-final-project.herokuapp.com/auth/google/callback/'
 
-        // Comment the line above and uncomment the line below for development. Remember to recomment them before pushing your branch or the main branch won't work
+        // Comment the line above and uncomment the line below for development. Remember to re-comment them before pushing your branch or the main branch won't work
         // callbackURL: '/auth/google/callback'
       },
       async (accessToken, refreshToken, profile, done) => {

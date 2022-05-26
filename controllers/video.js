@@ -48,7 +48,7 @@ const getTitle = async (req, res, next) => {
         $options: 'i'
       }
     });
-    if (!request) {
+    if (request.length === 0) {
       throw createError(404, 'No titles found matching ' + req.params.title);
     }
     res.json(request);
