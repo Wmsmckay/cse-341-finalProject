@@ -28,7 +28,9 @@ const docSchema = new mongoose.Schema({
       'xml',
       'xls',
       'xlr',
-      'xlsx'
+      'xlsx',
+      'pdf',
+      'ebook'
     ]
   },
   description: { type: String },
