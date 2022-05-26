@@ -5,11 +5,11 @@ const doc = {
     title: 'CSE 341 - GROUP 2 FINAL PROJECT',
     description: 'Mediatized'
   },
-  host: 'localhost:8080',
-  // host: 'cse-341-final-project.herokuapp.com',
+  // host: 'localhost:8080',
+  host: 'cse-341-final-project.herokuapp.com',
 
   // change the host and schemes to work on localhost. Change back before pushing your branch to make sure the heroku app works
-  schemes: ['http'], //['https'],
+  schemes: ['https'], //['https'],
   tags: [
     {
       name: 'Audio',
@@ -38,7 +38,7 @@ const doc = {
       audioType: 'mp3',
       description: 'A song about Sibbie',
       link: 'https://www.youtube.com/shorts/ASm9cw8z1Ug',
-      contributor: {
+      contributors: {
         performers: ['Strong Bad'],
         writers: ['The Brothers Chaps'],
         publishers: ['The Brothers Chaps']

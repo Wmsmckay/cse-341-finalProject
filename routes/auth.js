@@ -29,17 +29,18 @@ router.get(
 router.get('/logout', (req, res) => {
   // #swagger.ignore = true
   req.logout();
-  req.flash('success', 'You have logged out.');
+  req.flash('success', 'You have successfully logged out.');
   res.redirect('/');
 });
 
-router.post('/login', (req, res, next) => {
+router.post('/login', (req, res) => {
   // #swagger.ignore = true
   passport.authenticate('local', {
     successRedirect: '/dashboard',
-    failureRedirect: '/',
-    failureFlash: true
-  })(req, res, next);
+    failureRedirect: '/emaillogin',
+    failureFlash: true,
+    failureFlash: 'Please check your email and password.'
+  })(req, res);
 });
 
 module.exports = router;

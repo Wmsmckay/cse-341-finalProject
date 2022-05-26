@@ -12,10 +12,10 @@ module.exports = function (passport) {
       {
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        // callbackURL: 'https://cse-341-final-project.herokuapp.com/auth/google/callback/'
+        callbackURL: 'https://cse-341-final-project.herokuapp.com/auth/google/callback/'
 
         // Comment the line above and uncomment the line below for development. Remember to re-comment them before pushing your branch or the main branch won't work
-        callbackURL: '/auth/google/callback'
+        // callbackURL: '/auth/google/callback'
       },
       async (accessToken, refreshToken, profile, done) => {
         const newUser = {
@@ -48,10 +48,13 @@ module.exports = function (passport) {
       // Match user
       User.findOne({
         email: email
-      }).then((user) => {
+      }).then((user, err) => {
+        if (err) {
+          return done(err);
+        }
         if (!user) {
           return done(null, false, {
-            message: 'That email is not registered.'
+            messages: 'That email is not registered.'
           });
         }
         // Match password
@@ -60,7 +63,7 @@ module.exports = function (passport) {
           if (isMatch) {
             return done(null, user);
           } else {
-            return done(null, false, { message: 'Password incorrect' });
+            return done(null, false, { messages: 'Password incorrect' });
           }
         });
       });

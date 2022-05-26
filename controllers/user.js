@@ -20,6 +20,11 @@ const getAll = async (req, res, next) => {
 
   try {
     const request = await UserModel.find();
+    request.forEach((user) => {
+      if (user.password) {
+        user.password = '********';
+      }
+    });
     res.json(request);
   } catch (err) {
     // res.json({
@@ -37,6 +42,9 @@ const getSingle = async (req, res, next) => {
     if (!request) {
       throw createError(404, "User doesn't exist");
     }
+    if (request.password) {
+      request.password = '********';
+    }
     res.json(request);
   } catch (err) {
     if (err instanceof mongoose.CastError) {
@@ -47,18 +55,25 @@ const getSingle = async (req, res, next) => {
   }
 };
 
-const getUser = async (req, res, next) => {
+const getUserByName = async (req, res, next) => {
   // #swagger.tags = ['Users']
 
   try {
-    const request = await UserModel.find({
-      displayName: {
+    const request = await UserModel.find({$or:[{
+      lastname: {
         $regex: req.params.user,
         $options: 'i'
-      }
+      }},
+      {firstname: {
+        $regex: req.params.user,
+        $options: 'i'
+      }}]
     });
     if (!request) {
-      throw createError(404, req.params.user + ' not found');
+      throw createError(404, 'User not found');
+    }
+    if (request.password) {
+      request.password = '********';
     }
     res.json(request);
   } catch (err) {
@@ -75,12 +90,12 @@ const registerUser = async (req, res) => {
 
   if (!email || !firstname || !lastname || !password) {
     errors.push({ msg: 'Fields cannot be left blank.' });
-    req.flash('fail', 'Fields cannot be left blank.');
+    req.flash('error', 'Fields cannot be left blank.');
   }
 
   if (password.length < 8) {
     errors.push({ msg: 'Password must be at least 8 characters.' });
-    req.flash('fail', 'Password must be at least 8 characters.');
+    req.flash('error', 'Password must be at least 8 characters.');
   }
 
   if (errors.length > 0) {
@@ -94,7 +109,8 @@ const registerUser = async (req, res) => {
   } else {
     UserModel.findOne({ email: email }).then((user) => {
       if (user) {
-        errors.push({ msg: 'Email already exists' });
+        errors.push({ msg: 'That email is already registered.' });
+        req.flash('error', 'That email is already registered.');
         res.render('register', {
           layout: 'login',
           errors,
@@ -151,7 +167,7 @@ const delete_user = async (req, res, next) => {
 module.exports = {
   getAll,
   getSingle,
-  getUser,
+  getUserByName,
   registerUser,
   delete_user
 };

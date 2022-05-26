@@ -5,7 +5,7 @@
     "description": "Mediatized",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "cse-341-final-project.herokuapp.com",
   "basePath": "/",
   "tags": [
     {
@@ -30,7 +30,7 @@
     }
   ],
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/audio/": {
@@ -582,7 +582,7 @@
         }
       }
     },
-    "/user/username/{user}": {
+    "/user/name/{user}": {
       "get": {
         "tags": [
           "Users"
@@ -624,7 +624,7 @@
           "type": "string",
           "example": "https://www.youtube.com/shorts/ASm9cw8z1Ug"
         },
-        "contributor": {
+        "contributors": {
           "type": "object",
           "properties": {
             "performers": {

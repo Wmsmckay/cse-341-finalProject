@@ -40,7 +40,7 @@ app.use(
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-    cookie: { maxAge: 60000 },
+    cookie: { maxAge: 120000 },
     store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI })
   })
 );
@@ -53,16 +53,6 @@ app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(flash());
-
-// app.use(function (req, res, next) {
-//   res.locals.success_messages = req.flash('success_msg');
-//   res.locals.error_messages = req.flash('error_msg');
-//   res.locals.messages = req.flash('info');
-//   // res.locals.sessionFlash = req.session.sessionFlash;
-//   // delete req.session.sessionFlash;
-//   delete req.flash;
-//   next();
-// });
 
 // Routes
 app
