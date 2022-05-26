@@ -34,7 +34,7 @@ const doc = {
       audioType: 'mp3',
       description: 'A song about Sibbie',
       link: 'https://www.youtube.com/shorts/ASm9cw8z1Ug',
-      contributor: {
+      contributors: {
         performers: ['Strong Bad'],
         writers: ['The Brothers Chaps'],
         publishers: ['The Brothers Chaps']
