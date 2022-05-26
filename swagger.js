@@ -13,23 +13,23 @@ const doc = {
   tags: [
     {
       name: 'Audio',
-      description: 'Operations for Audio Content'
+      description: 'Operations for Audio Content include GET which returns all entries, POST which lets you add an entry, GET(by ID) which allows you to search for a specific entry based on an id created by the application, PUT which overwrites the information on an entry, DELETE which removes an entry from the database, and GET(by Title) which searches for a entry based on the title of the entry stored.'
     },
     {
       name: 'Video',
-      description: 'Operations for Video Content'
+      description: 'Operations for Video Content include GET which returns all entries, POST which lets you add an entry, GET(by ID) which allows you to search for a specific entry based on an id created by the application, PUT which overwrites the information on an entry, DELETE which removes an entry from the database, and GET(by Title) which searches for a entry based on the title of the entry stored.'
     },
     {
       name: 'Documents',
-      description: 'Operations for Documents'
+      description: 'Operations for Documents Content include GET which returns all entries, POST which lets you add an entry, GET(by ID) which allows you to search for a specific entry based on an id created by the application, PUT which overwrites the information on an entry, DELETE which removes an entry from the database, and GET(by Title) which searches for a entry based on the title of the entry stored.'
     },
     {
       name: 'Photos',
-      description: 'Operations for Photo Content'
+      description: 'Operations for Photos Content include GET which returns all entries, POST which lets you add an entry, GET(by ID) which allows you to search for a specific entry based on an id created by the application, PUT which overwrites the information on an entry, DELETE which removes an entry from the database, and GET(by Title) which searches for a entry based on the title of the entry stored.'
     },
     {
       name: 'Users',
-      description: 'Operations for Users'
+      description: 'Operations for Users include GET which returns all users,GET(by ID) which allows you to search for a specific entry based on an id created by the application, DELETE which removes an entry from the database, andGET(by Title) which searches for a entry based on the title of the entry stored.'
     }
   ],
   definitions: {
