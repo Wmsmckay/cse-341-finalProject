@@ -106,7 +106,7 @@ const update_document = async (req, res, next) => {
                   schema: { $ref: '#/definitions/Document' }
           } */
   try {
-    const document = await DocumentModel.findById(req.params.id);
+    const document = await DocumentsModel.findById(req.params.id);
 
     if (!document) {
       throw createError(404, "Document doesn't exist");
@@ -144,7 +144,7 @@ const delete_document = async (req, res, next) => {
   // #swagger.tags = ['Documents']
 
   try {
-    const request = await DocumentModel.findByIdAndDelete({
+    const request = await DocumentsModel.findByIdAndDelete({
       _id: req.params.id
     });
     if (!request) {
