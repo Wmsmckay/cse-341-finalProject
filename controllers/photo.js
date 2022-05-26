@@ -91,15 +91,26 @@ const update_photo = async (req, res, next) => {
       throw createError(404, "photo doesn't exist");
     }
 
-    const result = await updatePhotoSchema.validateAsync(req.body);
+    if (req.body.title) photo.title = req.body.title;
+    if (req.body.photoType) photo.photoType = req.body.photoType;
+    if (req.body.description) photo.description = req.body.description;
+    if (req.body.link) photo.link = req.body.link;
+    if (req.body.location.longitude)
+      photo.contributors.longitude = req.body.location.longitude;
+    if (req.body.location.latitude)
+      photo.location.latitude = req.body.location.latitude;
+    if (req.body.releaseDate) photo.releaseDate = req.body.releaseDate;
+    if (req.body.lengthSeconds) photo.lengthSeconds = req.body.lengthSeconds;
 
-    await photo.save();
-    res.send(photo);
+    photo.save((err) => {
+      if (err) {
+        res.status(500).json(err || 'An error occurred while updating the photo.');
+      } else {
+        res.status(204).send();
+      }
+    });
   } catch (err) {
-    if (err instanceof mongoose.CastError) {
-      return next(createError(400, 'Invalid photo id'));
-    }
-    next(err);
+    res.status(500).json(err);
   }
 };
 
