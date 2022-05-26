@@ -96,7 +96,7 @@ const update_photo = async (req, res, next) => {
     if (req.body.description) photo.description = req.body.description;
     if (req.body.link) photo.link = req.body.link;
     if (req.body.location.longitude)
-      photo.contributors.longitude = req.body.location.longitude;
+      photo.location.longitude = req.body.location.longitude;
     if (req.body.location.latitude)
       photo.location.latitude = req.body.location.latitude;
     if (req.body.releaseDate) photo.releaseDate = req.body.releaseDate;
