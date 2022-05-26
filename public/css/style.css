@@ -66,7 +66,7 @@ body {
 }
 
 #error {
-  background-color: palevioletred;
+  background-color: rgb(236, 127, 127);
 }
 
 @media screen and (min-width: 665px) {
