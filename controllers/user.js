@@ -20,6 +20,11 @@ const getAll = async (req, res, next) => {
 
   try {
     const request = await UserModel.find();
+    request.forEach((user) => {
+      if (user.password) {
+        user.password = '********';
+      }
+    });
     res.json(request);
   } catch (err) {
     // res.json({
@@ -36,6 +41,9 @@ const getSingle = async (req, res, next) => {
     const request = await UserModel.findById(req.params.id);
     if (!request) {
       throw createError(404, "User doesn't exist");
+    }
+    if (request.password) {
+      request.password = '********';
     }
     res.json(request);
   } catch (err) {
@@ -59,6 +67,9 @@ const getUser = async (req, res, next) => {
     });
     if (!request) {
       throw createError(404, req.params.user + ' not found');
+    }
+    if (request.password) {
+      request.password = '********';
     }
     res.json(request);
   } catch (err) {
